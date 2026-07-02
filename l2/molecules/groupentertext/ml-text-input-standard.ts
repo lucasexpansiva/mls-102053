@@ -78,13 +78,20 @@ export class MlTextInputStandardMolecule extends MoleculeAuraElement {
   // STATE CHANGE HANDLER — derived state sync
   // ===========================================================================
   handleIcaStateChange(key: string, value: any) {
-    const valueAttr = this.getAttribute('value');
-    const maskAttr = this.getAttribute('mask');
-    const rowsAttr = this.getAttribute('rows');
-    if (valueAttr === `{{${key}}}` || maskAttr === `{{${key}}}` || rowsAttr === `{{${key}}}`) {
-      this.updateDisplayValueFromProps();
+    // Delegate to the base handler: it stores the incoming value in the internal backing field
+    // and requests an update, WITHOUT re-reading the @propertyDataSource getters. Reading e.g.
+    // `this.value` synchronously here re-enters getState() during the notify cycle, which throws
+    // when the state manager is momentarily unresolved in the preview iframe.
+    super.handleIcaStateChange(key, value);
+
+    // Derive displayValue after the update settles (outside the notify reentrancy),
+    // where reading the state-bound getters is safe.
+    const affectsDisplay = ['value', 'mask', 'rows'].some(
+      (attr) => this.getAttribute(attr) === `{{${key}}}`
+    );
+    if (affectsDisplay) {
+      this.updateComplete.then(() => this.updateDisplayValueFromProps());
     }
-    this.requestUpdate();
   }
 
   updated(changedProps: Map<string, unknown>) {
