@@ -1,4 +1,4 @@
-/// <mls fileReference="_102053_/l2/project.ts" enhancement="_100554_enhancementLit" />
+/// <mls fileReference="_102053_/l2/project.ts" enhancement="_100554_enhancementLit" /> 
 
 export const projectConfig = {
     masterFrontEnd: {
