@@ -1,0 +1,436 @@
+<div class="bg-white dark:bg-slate-900 min-h-screen">
+  <div class="mx-auto p-8 font-sans">
+    <header class="text-center mb-12">
+      <h1 class="text-3xl font-semibold text-slate-800 dark:text-slate-100 mb-2">ML Select One Test</h1>
+      <span class="inline-block px-3 py-1 bg-sky-100 dark:bg-sky-900 text-sky-700 dark:text-sky-300 rounded-full text-sm font-medium">groupSelectOne</span>
+    </header>
+    <aura--molecules--playground--widget-playground-state-102020 state='{"playground":{"basic":{"value":"us","error":"","name":"country","variant":"dropdown","placeholder":"Select a country","disabled":false,"isEditing":true},"grouped":{"value":"laptops","error":"","name":"category","variant":"dropdown","placeholder":"Pick a category","searchable":true,"required":true,"isEditing":true},"radio":{"value":"","error":"Please select a notification method","name":"notification","variant":"radio","required":true,"isEditing":true},"segmented":{"value":"month","error":"","name":"billingCycle","variant":"segmented","readonly":true,"isEditing":true},"list":{"value":"medium","error":"","name":"priority","variant":"list","searchable":true,"isEditing":true},"table":{"value":"pro","error":"","name":"plan","variant":"table","searchable":true,"required":true,"isEditing":true},"view":{"value":"approved","error":"","name":"status","variant":"dropdown","placeholder":"No status selected","isEditing":false,"disabled":false}}}'>
+    </aura--molecules--playground--widget-playground-state-102020>
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+      <article class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-6">
+        <h3 class="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-4">Basic dropdown</h3>
+        <demo id="demo-basic">
+          <groupselectone--ml-select-one-test
+            value="{{playground.basic.value}}"
+            error="{{playground.basic.error}}"
+            name="{{playground.basic.name}}"
+            variant="{{playground.basic.variant}}"
+            placeholder="{{playground.basic.placeholder}}"
+            disabled="{{playground.basic.disabled}}"
+            is-editing="{{playground.basic.isEditing}}">
+            <Label>Country</Label>
+            <Trigger>Select a country...</Trigger>
+            <Item value="us">United States</Item>
+            <Item value="br">Brazil</Item>
+            <Item value="de">Germany</Item>
+          </groupselectone--ml-select-one-test>
+        </demo>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-sm font-medium text-slate-500 dark:text-slate-400">Properties</summary>
+          <div class="mt-2 p-4 border border-slate-200 dark:border-slate-700 rounded-lg dark:bg-slate-900">
+            <aura--molecules--playground--widget-playground-state-text-102020 label="value" value="{{playground.basic.value}}"></aura--molecules--playground--widget-playground-state-text-102020>
+            <aura--molecules--playground--widget-playground-state-text-102020 label="error" value="{{playground.basic.error}}"></aura--molecules--playground--widget-playground-state-text-102020>
+            <aura--molecules--playground--widget-playground-state-text-102020 label="name" value="{{playground.basic.name}}"></aura--molecules--playground--widget-playground-state-text-102020>
+            <aura--molecules--playground--widget-playground-state-text-102020 label="variant" value="{{playground.basic.variant}}"></aura--molecules--playground--widget-playground-state-text-102020>
+            <aura--molecules--playground--widget-playground-state-text-102020 label="placeholder" value="{{playground.basic.placeholder}}"></aura--molecules--playground--widget-playground-state-text-102020>
+            <aura--molecules--playground--widget-playground-state-boolean-102020 label="disabled" value="{{playground.basic.disabled}}"></aura--molecules--playground--widget-playground-state-boolean-102020>
+            <aura--molecules--playground--widget-playground-state-boolean-102020 label="isEditing" value="{{playground.basic.isEditing}}"></aura--molecules--playground--widget-playground-state-boolean-102020>
+          </div>
+        </details>
+        <details class="mt-2">
+          <summary class="cursor-pointer text-sm font-medium text-slate-500 dark:text-slate-400">HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-basic">
+              <template>
+                <groupselectone--ml-select-one-test
+                  value="{{playground.basic.value}}"
+                  error="{{playground.basic.error}}"
+                  name="{{playground.basic.name}}"
+                  variant="{{playground.basic.variant}}"
+                  placeholder="{{playground.basic.placeholder}}"
+                  disabled="{{playground.basic.disabled}}"
+                  is-editing="{{playground.basic.isEditing}}">
+                  <Label>Country</Label>
+                  <Trigger>Select a country...</Trigger>
+                  <Item value="us">United States</Item>
+                  <Item value="br">Brazil</Item>
+                  <Item value="de">Germany</Item>
+                </groupselectone--ml-select-one-test>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+      <article class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-6">
+        <h3 class="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-4">Searchable grouped dropdown</h3>
+        <demo id="demo-grouped">
+          <groupselectone--ml-select-one-test
+            value="{{playground.grouped.value}}"
+            error="{{playground.grouped.error}}"
+            name="{{playground.grouped.name}}"
+            variant="{{playground.grouped.variant}}"
+            placeholder="{{playground.grouped.placeholder}}"
+            searchable="{{playground.grouped.searchable}}"
+            required="{{playground.grouped.required}}"
+            is-editing="{{playground.grouped.isEditing}}">
+            <Label>Category</Label>
+            <Trigger>Choose a category</Trigger>
+            <Group label="Electronics">
+              <Item value="phones">Phones</Item>
+              <Item value="laptops">Laptops</Item>
+            </Group>
+            <Group label="Clothing">
+              <Item value="shirts">Shirts</Item>
+              <Item value="shoes">Shoes</Item>
+            </Group>
+            <Empty>No categories available</Empty>
+            <Helper>Select one category to continue.</Helper>
+          </groupselectone--ml-select-one-test>
+        </demo>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-sm font-medium text-slate-500 dark:text-slate-400">Properties</summary>
+          <div class="mt-2 p-4 border border-slate-200 dark:border-slate-700 rounded-lg dark:bg-slate-900">
+            <aura--molecules--playground--widget-playground-state-text-102020 label="value" value="{{playground.grouped.value}}"></aura--molecules--playground--widget-playground-state-text-102020>
+            <aura--molecules--playground--widget-playground-state-text-102020 label="error" value="{{playground.grouped.error}}"></aura--molecules--playground--widget-playground-state-text-102020>
+            <aura--molecules--playground--widget-playground-state-text-102020 label="name" value="{{playground.grouped.name}}"></aura--molecules--playground--widget-playground-state-text-102020>
+            <aura--molecules--playground--widget-playground-state-text-102020 label="variant" value="{{playground.grouped.variant}}"></aura--molecules--playground--widget-playground-state-text-102020>
+            <aura--molecules--playground--widget-playground-state-text-102020 label="placeholder" value="{{playground.grouped.placeholder}}"></aura--molecules--playground--widget-playground-state-text-102020>
+            <aura--molecules--playground--widget-playground-state-boolean-102020 label="searchable" value="{{playground.grouped.searchable}}"></aura--molecules--playground--widget-playground-state-boolean-102020>
+            <aura--molecules--playground--widget-playground-state-boolean-102020 label="required" value="{{playground.grouped.required}}"></aura--molecules--playground--widget-playground-state-boolean-102020>
+            <aura--molecules--playground--widget-playground-state-boolean-102020 label="isEditing" value="{{playground.grouped.isEditing}}"></aura--molecules--playground--widget-playground-state-boolean-102020>
+          </div>
+        </details>
+        <details class="mt-2">
+          <summary class="cursor-pointer text-sm font-medium text-slate-500 dark:text-slate-400">HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-grouped">
+              <template>
+                <groupselectone--ml-select-one-test
+                  value="{{playground.grouped.value}}"
+                  error="{{playground.grouped.error}}"
+                  name="{{playground.grouped.name}}"
+                  variant="{{playground.grouped.variant}}"
+                  placeholder="{{playground.grouped.placeholder}}"
+                  searchable="{{playground.grouped.searchable}}"
+                  required="{{playground.grouped.required}}"
+                  is-editing="{{playground.grouped.isEditing}}">
+                  <Label>Category</Label>
+                  <Trigger>Choose a category</Trigger>
+                  <Group label="Electronics">
+                    <Item value="phones">Phones</Item>
+                    <Item value="laptops">Laptops</Item>
+                  </Group>
+                  <Group label="Clothing">
+                    <Item value="shirts">Shirts</Item>
+                    <Item value="shoes">Shoes</Item>
+                  </Group>
+                  <Empty>No categories available</Empty>
+                  <Helper>Select one category to continue.</Helper>
+                </groupselectone--ml-select-one-test>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+      <article class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-6">
+        <h3 class="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-4">Radio with validation</h3>
+        <demo id="demo-radio">
+          <groupselectone--ml-select-one-test
+            value="{{playground.radio.value}}"
+            error="{{playground.radio.error}}"
+            name="{{playground.radio.name}}"
+            variant="{{playground.radio.variant}}"
+            required="{{playground.radio.required}}"
+            is-editing="{{playground.radio.isEditing}}">
+            <Label>Notification method</Label>
+            <Item value="email">Email</Item>
+            <Item value="sms">SMS</Item>
+            <Item value="push" disabled>Push</Item>
+          </groupselectone--ml-select-one-test>
+        </demo>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-sm font-medium text-slate-500 dark:text-slate-400">Properties</summary>
+          <div class="mt-2 p-4 border border-slate-200 dark:border-slate-700 rounded-lg dark:bg-slate-900">
+            <aura--molecules--playground--widget-playground-state-text-102020 label="value" value="{{playground.radio.value}}"></aura--molecules--playground--widget-playground-state-text-102020>
+            <aura--molecules--playground--widget-playground-state-text-102020 label="error" value="{{playground.radio.error}}"></aura--molecules--playground--widget-playground-state-text-102020>
+            <aura--molecules--playground--widget-playground-state-text-102020 label="name" value="{{playground.radio.name}}"></aura--molecules--playground--widget-playground-state-text-102020>
+            <aura--molecules--playground--widget-playground-state-text-102020 label="variant" value="{{playground.radio.variant}}"></aura--molecules--playground--widget-playground-state-text-102020>
+            <aura--molecules--playground--widget-playground-state-boolean-102020 label="required" value="{{playground.radio.required}}"></aura--molecules--playground--widget-playground-state-boolean-102020>
+            <aura--molecules--playground--widget-playground-state-boolean-102020 label="isEditing" value="{{playground.radio.isEditing}}"></aura--molecules--playground--widget-playground-state-boolean-102020>
+          </div>
+        </details>
+        <details class="mt-2">
+          <summary class="cursor-pointer text-sm font-medium text-slate-500 dark:text-slate-400">HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-radio">
+              <template>
+                <groupselectone--ml-select-one-test
+                  value="{{playground.radio.value}}"
+                  error="{{playground.radio.error}}"
+                  name="{{playground.radio.name}}"
+                  variant="{{playground.radio.variant}}"
+                  required="{{playground.radio.required}}"
+                  is-editing="{{playground.radio.isEditing}}">
+                  <Label>Notification method</Label>
+                  <Item value="email">Email</Item>
+                  <Item value="sms">SMS</Item>
+                  <Item value="push" disabled>Push</Item>
+                </groupselectone--ml-select-one-test>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+      <article class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-6">
+        <h3 class="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-4">Segmented readonly</h3>
+        <demo id="demo-segmented">
+          <groupselectone--ml-select-one-test
+            value="{{playground.segmented.value}}"
+            error="{{playground.segmented.error}}"
+            name="{{playground.segmented.name}}"
+            variant="{{playground.segmented.variant}}"
+            readonly="{{playground.segmented.readonly}}"
+            is-editing="{{playground.segmented.isEditing}}">
+            <Label>Billing cycle</Label>
+            <Item value="month">Monthly</Item>
+            <Item value="year">Yearly</Item>
+            <Item value="biennial">Every 2 years</Item>
+            <Helper>Monthly is selected and locked by policy.</Helper>
+          </groupselectone--ml-select-one-test>
+        </demo>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-sm font-medium text-slate-500 dark:text-slate-400">Properties</summary>
+          <div class="mt-2 p-4 border border-slate-200 dark:border-slate-700 rounded-lg dark:bg-slate-900">
+            <aura--molecules--playground--widget-playground-state-text-102020 label="value" value="{{playground.segmented.value}}"></aura--molecules--playground--widget-playground-state-text-102020>
+            <aura--molecules--playground--widget-playground-state-text-102020 label="error" value="{{playground.segmented.error}}"></aura--molecules--playground--widget-playground-state-text-102020>
+            <aura--molecules--playground--widget-playground-state-text-102020 label="name" value="{{playground.segmented.name}}"></aura--molecules--playground--widget-playground-state-text-102020>
+            <aura--molecules--playground--widget-playground-state-text-102020 label="variant" value="{{playground.segmented.variant}}"></aura--molecules--playground--widget-playground-state-text-102020>
+            <aura--molecules--playground--widget-playground-state-boolean-102020 label="readonly" value="{{playground.segmented.readonly}}"></aura--molecules--playground--widget-playground-state-boolean-102020>
+            <aura--molecules--playground--widget-playground-state-boolean-102020 label="isEditing" value="{{playground.segmented.isEditing}}"></aura--molecules--playground--widget-playground-state-boolean-102020>
+          </div>
+        </details>
+        <details class="mt-2">
+          <summary class="cursor-pointer text-sm font-medium text-slate-500 dark:text-slate-400">HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-segmented">
+              <template>
+                <groupselectone--ml-select-one-test
+                  value="{{playground.segmented.value}}"
+                  error="{{playground.segmented.error}}"
+                  name="{{playground.segmented.name}}"
+                  variant="{{playground.segmented.variant}}"
+                  readonly="{{playground.segmented.readonly}}"
+                  is-editing="{{playground.segmented.isEditing}}">
+                  <Label>Billing cycle</Label>
+                  <Item value="month">Monthly</Item>
+                  <Item value="year">Yearly</Item>
+                  <Item value="biennial">Every 2 years</Item>
+                  <Helper>Monthly is selected and locked by policy.</Helper>
+                </groupselectone--ml-select-one-test>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+      <article class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-6">
+        <h3 class="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-4">List searchable</h3>
+        <demo id="demo-list">
+          <groupselectone--ml-select-one-test
+            value="{{playground.list.value}}"
+            error="{{playground.list.error}}"
+            name="{{playground.list.name}}"
+            variant="{{playground.list.variant}}"
+            searchable="{{playground.list.searchable}}"
+            is-editing="{{playground.list.isEditing}}">
+            <Label>Priority</Label>
+            <Item value="low">Low</Item>
+            <Item value="medium">Medium</Item>
+            <Item value="high">High</Item>
+            <Item value="urgent" disabled>Urgent</Item>
+            <Empty>No priorities found</Empty>
+            <Helper>Search to narrow down the list.</Helper>
+          </groupselectone--ml-select-one-test>
+        </demo>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-sm font-medium text-slate-500 dark:text-slate-400">Properties</summary>
+          <div class="mt-2 p-4 border border-slate-200 dark:border-slate-700 rounded-lg dark:bg-slate-900">
+            <aura--molecules--playground--widget-playground-state-text-102020 label="value" value="{{playground.list.value}}"></aura--molecules--playground--widget-playground-state-text-102020>
+            <aura--molecules--playground--widget-playground-state-text-102020 label="error" value="{{playground.list.error}}"></aura--molecules--playground--widget-playground-state-text-102020>
+            <aura--molecules--playground--widget-playground-state-text-102020 label="name" value="{{playground.list.name}}"></aura--molecules--playground--widget-playground-state-text-102020>
+            <aura--molecules--playground--widget-playground-state-text-102020 label="variant" value="{{playground.list.variant}}"></aura--molecules--playground--widget-playground-state-text-102020>
+            <aura--molecules--playground--widget-playground-state-boolean-102020 label="searchable" value="{{playground.list.searchable}}"></aura--molecules--playground--widget-playground-state-boolean-102020>
+            <aura--molecules--playground--widget-playground-state-boolean-102020 label="isEditing" value="{{playground.list.isEditing}}"></aura--molecules--playground--widget-playground-state-boolean-102020>
+          </div>
+        </details>
+        <details class="mt-2">
+          <summary class="cursor-pointer text-sm font-medium text-slate-500 dark:text-slate-400">HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-list">
+              <template>
+                <groupselectone--ml-select-one-test
+                  value="{{playground.list.value}}"
+                  error="{{playground.list.error}}"
+                  name="{{playground.list.name}}"
+                  variant="{{playground.list.variant}}"
+                  searchable="{{playground.list.searchable}}"
+                  is-editing="{{playground.list.isEditing}}">
+                  <Label>Priority</Label>
+                  <Item value="low">Low</Item>
+                  <Item value="medium">Medium</Item>
+                  <Item value="high">High</Item>
+                  <Item value="urgent" disabled>Urgent</Item>
+                  <Empty>No priorities found</Empty>
+                  <Helper>Search to narrow down the list.</Helper>
+                </groupselectone--ml-select-one-test>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+      <article class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-6">
+        <h3 class="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-4">Table comparison</h3>
+        <demo id="demo-table">
+          <groupselectone--ml-select-one-test
+            value="{{playground.table.value}}"
+            error="{{playground.table.error}}"
+            name="{{playground.table.name}}"
+            variant="{{playground.table.variant}}"
+            searchable="{{playground.table.searchable}}"
+            required="{{playground.table.required}}"
+            is-editing="{{playground.table.isEditing}}">
+            <Label>Plan</Label>
+            <Column>Plan</Column>
+            <Column>Price</Column>
+            <Column>Seats</Column>
+            <Item value="basic">
+              <Cell>Basic</Cell>
+              <Cell>$10/mo</Cell>
+              <Cell>3</Cell>
+            </Item>
+            <Item value="pro">
+              <Cell>Pro</Cell>
+              <Cell>$25/mo</Cell>
+              <Cell>10</Cell>
+            </Item>
+            <Item value="enterprise" disabled>
+              <Cell>Enterprise</Cell>
+              <Cell>Contact us</Cell>
+              <Cell>Unlimited</Cell>
+            </Item>
+            <Empty>No plans available</Empty>
+            <Helper>You can upgrade later.</Helper>
+          </groupselectone--ml-select-one-test>
+        </demo>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-sm font-medium text-slate-500 dark:text-slate-400">Properties</summary>
+          <div class="mt-2 p-4 border border-slate-200 dark:border-slate-700 rounded-lg dark:bg-slate-900">
+            <aura--molecules--playground--widget-playground-state-text-102020 label="value" value="{{playground.table.value}}"></aura--molecules--playground--widget-playground-state-text-102020>
+            <aura--molecules--playground--widget-playground-state-text-102020 label="error" value="{{playground.table.error}}"></aura--molecules--playground--widget-playground-state-text-102020>
+            <aura--molecules--playground--widget-playground-state-text-102020 label="name" value="{{playground.table.name}}"></aura--molecules--playground--widget-playground-state-text-102020>
+            <aura--molecules--playground--widget-playground-state-text-102020 label="variant" value="{{playground.table.variant}}"></aura--molecules--playground--widget-playground-state-text-102020>
+            <aura--molecules--playground--widget-playground-state-boolean-102020 label="searchable" value="{{playground.table.searchable}}"></aura--molecules--playground--widget-playground-state-boolean-102020>
+            <aura--molecules--playground--widget-playground-state-boolean-102020 label="required" value="{{playground.table.required}}"></aura--molecules--playground--widget-playground-state-boolean-102020>
+            <aura--molecules--playground--widget-playground-state-boolean-102020 label="isEditing" value="{{playground.table.isEditing}}"></aura--molecules--playground--widget-playground-state-boolean-102020>
+          </div>
+        </details>
+        <details class="mt-2">
+          <summary class="cursor-pointer text-sm font-medium text-slate-500 dark:text-slate-400">HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-table">
+              <template>
+                <groupselectone--ml-select-one-test
+                  value="{{playground.table.value}}"
+                  error="{{playground.table.error}}"
+                  name="{{playground.table.name}}"
+                  variant="{{playground.table.variant}}"
+                  searchable="{{playground.table.searchable}}"
+                  required="{{playground.table.required}}"
+                  is-editing="{{playground.table.isEditing}}">
+                  <Label>Plan</Label>
+                  <Column>Plan</Column>
+                  <Column>Price</Column>
+                  <Column>Seats</Column>
+                  <Item value="basic">
+                    <Cell>Basic</Cell>
+                    <Cell>$10/mo</Cell>
+                    <Cell>3</Cell>
+                  </Item>
+                  <Item value="pro">
+                    <Cell>Pro</Cell>
+                    <Cell>$25/mo</Cell>
+                    <Cell>10</Cell>
+                  </Item>
+                  <Item value="enterprise" disabled>
+                    <Cell>Enterprise</Cell>
+                    <Cell>Contact us</Cell>
+                    <Cell>Unlimited</Cell>
+                  </Item>
+                  <Empty>No plans available</Empty>
+                  <Helper>You can upgrade later.</Helper>
+                </groupselectone--ml-select-one-test>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+      <article class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-6">
+        <h3 class="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-4">View mode</h3>
+        <demo id="demo-view">
+          <groupselectone--ml-select-one-test
+            value="{{playground.view.value}}"
+            error="{{playground.view.error}}"
+            name="{{playground.view.name}}"
+            variant="{{playground.view.variant}}"
+            placeholder="{{playground.view.placeholder}}"
+            disabled="{{playground.view.disabled}}"
+            is-editing="{{playground.view.isEditing}}">
+            <Label>Status</Label>
+            <Item value="approved">Approved</Item>
+            <Item value="pending">Pending</Item>
+            <Item value="rejected">Rejected</Item>
+          </groupselectone--ml-select-one-test>
+        </demo>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-sm font-medium text-slate-500 dark:text-slate-400">Properties</summary>
+          <div class="mt-2 p-4 border border-slate-200 dark:border-slate-700 rounded-lg dark:bg-slate-900">
+            <aura--molecules--playground--widget-playground-state-text-102020 label="value" value="{{playground.view.value}}"></aura--molecules--playground--widget-playground-state-text-102020>
+            <aura--molecules--playground--widget-playground-state-text-102020 label="error" value="{{playground.view.error}}"></aura--molecules--playground--widget-playground-state-text-102020>
+            <aura--molecules--playground--widget-playground-state-text-102020 label="name" value="{{playground.view.name}}"></aura--molecules--playground--widget-playground-state-text-102020>
+            <aura--molecules--playground--widget-playground-state-text-102020 label="variant" value="{{playground.view.variant}}"></aura--molecules--playground--widget-playground-state-text-102020>
+            <aura--molecules--playground--widget-playground-state-text-102020 label="placeholder" value="{{playground.view.placeholder}}"></aura--molecules--playground--widget-playground-state-text-102020>
+            <aura--molecules--playground--widget-playground-state-boolean-102020 label="isEditing" value="{{playground.view.isEditing}}"></aura--molecules--playground--widget-playground-state-boolean-102020>
+            <aura--molecules--playground--widget-playground-state-boolean-102020 label="disabled" value="{{playground.view.disabled}}"></aura--molecules--playground--widget-playground-state-boolean-102020>
+          </div>
+        </details>
+        <details class="mt-2">
+          <summary class="cursor-pointer text-sm font-medium text-slate-500 dark:text-slate-400">HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-view">
+              <template>
+                <groupselectone--ml-select-one-test
+                  value="{{playground.view.value}}"
+                  error="{{playground.view.error}}"
+                  name="{{playground.view.name}}"
+                  variant="{{playground.view.variant}}"
+                  placeholder="{{playground.view.placeholder}}"
+                  disabled="{{playground.view.disabled}}"
+                  is-editing="{{playground.view.isEditing}}">
+                  <Label>Status</Label>
+                  <Item value="approved">Approved</Item>
+                  <Item value="pending">Pending</Item>
+                  <Item value="rejected">Rejected</Item>
+                </groupselectone--ml-select-one-test>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+    </section>
+  </div>
+</div>
