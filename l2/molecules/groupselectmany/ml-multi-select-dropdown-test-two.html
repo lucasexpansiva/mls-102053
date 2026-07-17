@@ -1,0 +1,300 @@
+<div class="bg-white dark:bg-slate-900 min-h-screen">
+  <div class="mx-auto p-8 font-sans">
+    <header class="text-center mb-12">
+      <h1 class="text-3xl font-semibold text-slate-800 dark:text-slate-100 mb-2">Multi Select Dropdown Test Two</h1>
+      <span class="inline-block px-3 py-1 bg-sky-100 dark:bg-sky-900 text-sky-700 dark:text-sky-300 rounded-full text-sm font-medium">groupSelectMany</span>
+    </header>
+
+    <aura--molecules--playground--widget-playground-state-102020 state='{"playground":{"basic":{"value":"","error":"","placeholder":"Select teams"},"searchable":{"value":"frontend,finance","searchable":true,"placeholder":"Search departments"},"limits":{"value":"read,write","minSelection":2,"maxSelection":3,"required":true},"customTrigger":{"value":"news,updates","placeholder":"Pick categories"},"viewMode":{"value":"low,medium","isEditing":false},"loading":{"loading":true,"placeholder":"Loading options"}}}'></aura--molecules--playground--widget-playground-state-102020>
+
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+      <article class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-6">
+        <h3 class="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-4">Basic</h3>
+        <demo id="demo-basic">
+          <groupselectmany--ml-multi-select-dropdown-test-two
+            value="{{playground.basic.value}}"
+            error="{{playground.basic.error}}"
+            placeholder="{{playground.basic.placeholder}}"
+            name="teams">
+            <Label>Teams</Label>
+            <Helper>Select all teams involved.</Helper>
+            <Item value="design">Design</Item>
+            <Item value="engineering">Engineering</Item>
+            <Item value="qa">QA</Item>
+            <Item value="product">Product</Item>
+          </groupselectmany--ml-multi-select-dropdown-test-two>
+        </demo>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-sm font-medium text-slate-500 dark:text-slate-400">Properties</summary>
+          <div class="mt-2 p-4 border border-slate-200 dark:border-slate-700 rounded-lg dark:bg-slate-900">
+            <aura--molecules--playground--widget-playground-state-text-102020 label="value" value="{{playground.basic.value}}"></aura--molecules--playground--widget-playground-state-text-102020>
+            <aura--molecules--playground--widget-playground-state-text-102020 label="error" value="{{playground.basic.error}}"></aura--molecules--playground--widget-playground-state-text-102020>
+            <aura--molecules--playground--widget-playground-state-text-102020 label="placeholder" value="{{playground.basic.placeholder}}"></aura--molecules--playground--widget-playground-state-text-102020>
+          </div>
+        </details>
+        <details class="mt-2">
+          <summary class="cursor-pointer text-sm font-medium text-slate-500 dark:text-slate-400">HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-basic">
+              <template>
+                <groupselectmany--ml-multi-select-dropdown-test-two
+                  value="{{playground.basic.value}}"
+                  error="{{playground.basic.error}}"
+                  placeholder="{{playground.basic.placeholder}}"
+                  name="teams">
+                  <Label>Teams</Label>
+                  <Helper>Select all teams involved.</Helper>
+                  <Item value="design">Design</Item>
+                  <Item value="engineering">Engineering</Item>
+                  <Item value="qa">QA</Item>
+                  <Item value="product">Product</Item>
+                </groupselectmany--ml-multi-select-dropdown-test-two>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+      <article class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-6">
+        <h3 class="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-4">Searchable Groups</h3>
+        <demo id="demo-searchable-groups">
+          <groupselectmany--ml-multi-select-dropdown-test-two
+            value="{{playground.searchable.value}}"
+            searchable="{{playground.searchable.searchable}}"
+            placeholder="{{playground.searchable.placeholder}}"
+            name="departments">
+            <Label>Departments</Label>
+            <Group label="Engineering">
+              <Item value="frontend">Frontend</Item>
+              <Item value="backend">Backend</Item>
+              <Item value="devops">DevOps</Item>
+            </Group>
+            <Group label="Business">
+              <Item value="finance">Finance</Item>
+              <Item value="sales">Sales</Item>
+              <Item value="marketing">Marketing</Item>
+            </Group>
+            <Empty>No matching departments.</Empty>
+            <Helper>Type to filter departments.</Helper>
+          </groupselectmany--ml-multi-select-dropdown-test-two>
+        </demo>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-sm font-medium text-slate-500 dark:text-slate-400">Properties</summary>
+          <div class="mt-2 p-4 border border-slate-200 dark:border-slate-700 rounded-lg dark:bg-slate-900">
+            <aura--molecules--playground--widget-playground-state-text-102020 label="value" value="{{playground.searchable.value}}"></aura--molecules--playground--widget-playground-state-text-102020>
+            <aura--molecules--playground--widget-playground-state-boolean-102020 label="searchable" value="{{playground.searchable.searchable}}"></aura--molecules--playground--widget-playground-state-boolean-102020>
+            <aura--molecules--playground--widget-playground-state-text-102020 label="placeholder" value="{{playground.searchable.placeholder}}"></aura--molecules--playground--widget-playground-state-text-102020>
+          </div>
+        </details>
+        <details class="mt-2">
+          <summary class="cursor-pointer text-sm font-medium text-slate-500 dark:text-slate-400">HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-searchable-groups">
+              <template>
+                <groupselectmany--ml-multi-select-dropdown-test-two
+                  value="{{playground.searchable.value}}"
+                  searchable="{{playground.searchable.searchable}}"
+                  placeholder="{{playground.searchable.placeholder}}"
+                  name="departments">
+                  <Label>Departments</Label>
+                  <Group label="Engineering">
+                    <Item value="frontend">Frontend</Item>
+                    <Item value="backend">Backend</Item>
+                    <Item value="devops">DevOps</Item>
+                  </Group>
+                  <Group label="Business">
+                    <Item value="finance">Finance</Item>
+                    <Item value="sales">Sales</Item>
+                    <Item value="marketing">Marketing</Item>
+                  </Group>
+                  <Empty>No matching departments.</Empty>
+                  <Helper>Type to filter departments.</Helper>
+                </groupselectmany--ml-multi-select-dropdown-test-two>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+      <article class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-6">
+        <h3 class="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-4">Selection Limits</h3>
+        <demo id="demo-selection-limits">
+          <groupselectmany--ml-multi-select-dropdown-test-two
+            value="{{playground.limits.value}}"
+            min-selection="{{playground.limits.minSelection}}"
+            max-selection="{{playground.limits.maxSelection}}"
+            required="{{playground.limits.required}}"
+            name="permissions">
+            <Label>Permissions</Label>
+            <Helper>Choose between 2 and 3 permissions.</Helper>
+            <Item value="read">Read</Item>
+            <Item value="write">Write</Item>
+            <Item value="execute">Execute</Item>
+            <Item value="admin" disabled>Admin (restricted)</Item>
+          </groupselectmany--ml-multi-select-dropdown-test-two>
+        </demo>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-sm font-medium text-slate-500 dark:text-slate-400">Properties</summary>
+          <div class="mt-2 p-4 border border-slate-200 dark:border-slate-700 rounded-lg dark:bg-slate-900">
+            <aura--molecules--playground--widget-playground-state-text-102020 label="value" value="{{playground.limits.value}}"></aura--molecules--playground--widget-playground-state-text-102020>
+            <aura--molecules--playground--widget-playground-state-number-102020 label="minSelection" value="{{playground.limits.minSelection}}"></aura--molecules--playground--widget-playground-state-number-102020>
+            <aura--molecules--playground--widget-playground-state-number-102020 label="maxSelection" value="{{playground.limits.maxSelection}}"></aura--molecules--playground--widget-playground-state-number-102020>
+            <aura--molecules--playground--widget-playground-state-boolean-102020 label="required" value="{{playground.limits.required}}"></aura--molecules--playground--widget-playground-state-boolean-102020>
+          </div>
+        </details>
+        <details class="mt-2">
+          <summary class="cursor-pointer text-sm font-medium text-slate-500 dark:text-slate-400">HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-selection-limits">
+              <template>
+                <groupselectmany--ml-multi-select-dropdown-test-two
+                  value="{{playground.limits.value}}"
+                  min-selection="{{playground.limits.minSelection}}"
+                  max-selection="{{playground.limits.maxSelection}}"
+                  required="{{playground.limits.required}}"
+                  name="permissions">
+                  <Label>Permissions</Label>
+                  <Helper>Choose between 2 and 3 permissions.</Helper>
+                  <Item value="read">Read</Item>
+                  <Item value="write">Write</Item>
+                  <Item value="execute">Execute</Item>
+                  <Item value="admin" disabled>Admin (restricted)</Item>
+                </groupselectmany--ml-multi-select-dropdown-test-two>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+      <article class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-6">
+        <h3 class="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-4">Custom Trigger</h3>
+        <demo id="demo-custom-trigger">
+          <groupselectmany--ml-multi-select-dropdown-test-two
+            value="{{playground.customTrigger.value}}"
+            placeholder="{{playground.customTrigger.placeholder}}"
+            name="categories">
+            <Label>Content Categories</Label>
+            <Trigger>
+              <div class="flex items-center justify-between w-full">
+                <span class="font-medium">Choose categories</span>
+                <span class="text-xs text-slate-500">Multi-select</span>
+              </div>
+            </Trigger>
+            <Item value="news">News</Item>
+            <Item value="updates">Product updates</Item>
+            <Item value="events">Events</Item>
+            <Item value="guides">Guides</Item>
+            <Helper>Used for newsletter segmentation.</Helper>
+          </groupselectmany--ml-multi-select-dropdown-test-two>
+        </demo>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-sm font-medium text-slate-500 dark:text-slate-400">Properties</summary>
+          <div class="mt-2 p-4 border border-slate-200 dark:border-slate-700 rounded-lg dark:bg-slate-900">
+            <aura--molecules--playground--widget-playground-state-text-102020 label="value" value="{{playground.customTrigger.value}}"></aura--molecules--playground--widget-playground-state-text-102020>
+            <aura--molecules--playground--widget-playground-state-text-102020 label="placeholder" value="{{playground.customTrigger.placeholder}}"></aura--molecules--playground--widget-playground-state-text-102020>
+          </div>
+        </details>
+        <details class="mt-2">
+          <summary class="cursor-pointer text-sm font-medium text-slate-500 dark:text-slate-400">HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-custom-trigger">
+              <template>
+                <groupselectmany--ml-multi-select-dropdown-test-two
+                  value="{{playground.customTrigger.value}}"
+                  placeholder="{{playground.customTrigger.placeholder}}"
+                  name="categories">
+                  <Label>Content Categories</Label>
+                  <Trigger>
+                    <div class="flex items-center justify-between w-full">
+                      <span class="font-medium">Choose categories</span>
+                      <span class="text-xs text-slate-500">Multi-select</span>
+                    </div>
+                  </Trigger>
+                  <Item value="news">News</Item>
+                  <Item value="updates">Product updates</Item>
+                  <Item value="events">Events</Item>
+                  <Item value="guides">Guides</Item>
+                  <Helper>Used for newsletter segmentation.</Helper>
+                </groupselectmany--ml-multi-select-dropdown-test-two>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+      <article class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-6">
+        <h3 class="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-4">View Mode</h3>
+        <demo id="demo-view-mode">
+          <groupselectmany--ml-multi-select-dropdown-test-two
+            value="{{playground.viewMode.value}}"
+            is-editing="{{playground.viewMode.isEditing}}">
+            <Item value="low">Low</Item>
+            <Item value="medium">Medium</Item>
+            <Item value="high">High</Item>
+          </groupselectmany--ml-multi-select-dropdown-test-two>
+        </demo>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-sm font-medium text-slate-500 dark:text-slate-400">Properties</summary>
+          <div class="mt-2 p-4 border border-slate-200 dark:border-slate-700 rounded-lg dark:bg-slate-900">
+            <aura--molecules--playground--widget-playground-state-text-102020 label="value" value="{{playground.viewMode.value}}"></aura--molecules--playground--widget-playground-state-text-102020>
+            <aura--molecules--playground--widget-playground-state-boolean-102020 label="isEditing" value="{{playground.viewMode.isEditing}}"></aura--molecules--playground--widget-playground-state-boolean-102020>
+          </div>
+        </details>
+        <details class="mt-2">
+          <summary class="cursor-pointer text-sm font-medium text-slate-500 dark:text-slate-400">HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-view-mode">
+              <template>
+                <groupselectmany--ml-multi-select-dropdown-test-two
+                  value="{{playground.viewMode.value}}"
+                  is-editing="{{playground.viewMode.isEditing}}">
+                  <Item value="low">Low</Item>
+                  <Item value="medium">Medium</Item>
+                  <Item value="high">High</Item>
+                </groupselectmany--ml-multi-select-dropdown-test-two>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+      <article class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-6">
+        <h3 class="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-4">Loading</h3>
+        <demo id="demo-loading">
+          <groupselectmany--ml-multi-select-dropdown-test-two
+            loading="{{playground.loading.loading}}"
+            placeholder="{{playground.loading.placeholder}}"
+            name="channels">
+            <Item value="email">Email</Item>
+            <Item value="sms">SMS</Item>
+            <Item value="push">Push</Item>
+          </groupselectmany--ml-multi-select-dropdown-test-two>
+        </demo>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-sm font-medium text-slate-500 dark:text-slate-400">Properties</summary>
+          <div class="mt-2 p-4 border border-slate-200 dark:border-slate-700 rounded-lg dark:bg-slate-900">
+            <aura--molecules--playground--widget-playground-state-boolean-102020 label="loading" value="{{playground.loading.loading}}"></aura--molecules--playground--widget-playground-state-boolean-102020>
+            <aura--molecules--playground--widget-playground-state-text-102020 label="placeholder" value="{{playground.loading.placeholder}}"></aura--molecules--playground--widget-playground-state-text-102020>
+          </div>
+        </details>
+        <details class="mt-2">
+          <summary class="cursor-pointer text-sm font-medium text-slate-500 dark:text-slate-400">HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-loading">
+              <template>
+                <groupselectmany--ml-multi-select-dropdown-test-two
+                  loading="{{playground.loading.loading}}"
+                  placeholder="{{playground.loading.placeholder}}"
+                  name="channels">
+                  <Item value="email">Email</Item>
+                  <Item value="sms">SMS</Item>
+                  <Item value="push">Push</Item>
+                </groupselectmany--ml-multi-select-dropdown-test-two>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+    </section>
+  </div>
+</div>
