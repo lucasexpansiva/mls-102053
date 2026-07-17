@@ -139,18 +139,7 @@ export class VehicleRegistration extends StateLitElement {
       </p>
     </div>
 
-    <!-- Banner de sucesso -->
-    <div class="mb-6">
-      <groupnotifyuser--ml-notify-banner
-        type="success"
-        .visible=${this.saved}
-        dismissible="true"
-        @dismiss=${() => { this.saved = false; }}
-      >
-        <Title>Alterações salvas</Title>
-        <Message>O registro do veículo ${this.placa} foi atualizado com sucesso.</Message>
-      </groupnotifyuser--ml-notify-banner>
-    </div>
+
 
     <!-- Card principal -->
     <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-8 space-y-8">
@@ -180,7 +169,18 @@ export class VehicleRegistration extends StateLitElement {
         Salvar Alterações
       </button>
     </div>
-
+    <!-- Banner de sucesso -->
+    <div class="mb-6">
+      <groupnotifyuser--ml-notify-banner
+        type="success"
+        .visible=${this.saved}
+        dismissible="true"
+        @dismiss=${() => { this.saved = false; }}
+      >
+        <Title>Alterações salvas</Title>
+        <Message>O registro do veículo ${this.placa} foi atualizado com sucesso.</Message>
+      </groupnotifyuser--ml-notify-banner>
+    </div>
   </div>
 </div>
     `;
