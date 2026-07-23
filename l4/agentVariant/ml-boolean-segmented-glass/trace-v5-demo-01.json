@@ -1,0 +1,7 @@
+{
+  "savedAt": "2026-07-23T17:17:16.077Z",
+  "planId": "v5-demo",
+  "attempt": 1,
+  "ok": false,
+  "error": "tag_uses: the variant tag <groupenterboolean--ml-boolean-segmented-glass> must be exercised at least 3 times (found 0)"
+}
