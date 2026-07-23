@@ -1,7 +1,7 @@
 {
-  "savedAt": "2026-07-23T18:53:04.001Z",
+  "savedAt": "2026-07-23T19:39:12.949Z",
   "planId": "v4-index",
   "attempt": 1,
-  "ok": false,
-  "error": "no_content: index.ts is empty"
+  "ok": true,
+  "compiled": true
 }

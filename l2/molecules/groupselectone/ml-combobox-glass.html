@@ -1,0 +1,389 @@
+<div style="min-height:100vh; background: linear-gradient(135deg, #0f172a 0%, #312e81 45%, #7e22ce 100%); font-family: 'Inter', system-ui, sans-serif;">
+  <div class="mx-auto p-8" style="max-width:1200px;">
+
+    <!-- Header -->
+    <header class="text-center mb-12">
+      <h1 style="font-size:2rem; font-weight:700; color:rgba(255,255,255,0.95); margin-bottom:0.5rem; letter-spacing:-0.01em;">Combobox — Glass</h1>
+      <span style="display:inline-block; padding:0.25rem 1rem; background:rgba(99,102,241,0.25); border:1px solid rgba(99,102,241,0.5); color:rgba(199,210,254,0.95); border-radius:999px; font-size:0.8rem; font-weight:600; letter-spacing:0.04em;">groupselectone</span>
+    </header>
+
+    <!-- State Widget -->
+    <aura--molecules--playground--widget-playground-state-102020 state='{"playground":{"basic":{"value":"","error":""},"groups":{"value":"ts"},"clearable":{"value":"","error":"This field is required"},"freetext":{"value":""},"viewmode":{"value":"eu"},"readonly":{"value":"br"}}}'>
+    </aura--molecules--playground--widget-playground-state-102020>
+
+    <!-- Demo Grid -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+
+      <!-- 1. Basic -->
+      <article style="background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.18); border-radius:14px; padding:1.5rem; box-shadow:0 4px 18px rgba(0,0,0,0.22); backdrop-filter:blur(10px);">
+        <h3 style="font-size:1.05rem; font-weight:600; color:rgba(255,255,255,0.9); margin-bottom:1rem;">Basic</h3>
+        <demo id="demo-basic">
+          <groupselectone--ml-combobox-glass
+            value="{{playground.basic.value}}"
+            error="{{playground.basic.error}}"
+            placeholder="Select a fruit..."
+            is-editing="true">
+            <Label>Favourite Fruit</Label>
+            <Helper>Pick one from the list</Helper>
+            <Item value="apple">🍎 Apple</Item>
+            <Item value="banana">🍌 Banana</Item>
+            <Item value="cherry">🍒 Cherry</Item>
+            <Item value="mango">🥭 Mango</Item>
+            <Item value="grape">🍇 Grape</Item>
+          </groupselectone--ml-combobox-glass>
+        </demo>
+        <details class="mt-4">
+          <summary style="cursor:pointer; font-size:0.82rem; font-weight:500; color:rgba(255,255,255,0.5);">Properties</summary>
+          <div style="margin-top:0.5rem; padding:1rem; border:1px solid rgba(255,255,255,0.12); border-radius:10px; background:rgba(0,0,0,0.18);">
+            <aura--molecules--playground--widget-playground-state-text-102020 label="value" value="{{playground.basic.value}}"></aura--molecules--playground--widget-playground-state-text-102020>
+            <aura--molecules--playground--widget-playground-state-text-102020 label="error" value="{{playground.basic.error}}"></aura--molecules--playground--widget-playground-state-text-102020>
+          </div>
+        </details>
+        <details class="mt-2">
+          <summary style="cursor:pointer; font-size:0.82rem; font-weight:500; color:rgba(255,255,255,0.5);">HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-basic">
+              <template>
+                <groupselectone--ml-combobox-glass
+                  value="{{playground.basic.value}}"
+                  error="{{playground.basic.error}}"
+                  placeholder="Select a fruit..."
+                  is-editing="true">
+                  <Label>Favourite Fruit</Label>
+                  <Helper>Pick one from the list</Helper>
+                  <Item value="apple">🍎 Apple</Item>
+                  <Item value="banana">🍌 Banana</Item>
+                  <Item value="cherry">🍒 Cherry</Item>
+                  <Item value="mango">🥭 Mango</Item>
+                  <Item value="grape">🍇 Grape</Item>
+                </groupselectone--ml-combobox-glass>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+      <!-- 2. With Groups -->
+      <article style="background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.18); border-radius:14px; padding:1.5rem; box-shadow:0 4px 18px rgba(0,0,0,0.22); backdrop-filter:blur(10px);">
+        <h3 style="font-size:1.05rem; font-weight:600; color:rgba(255,255,255,0.9); margin-bottom:1rem;">Grouped Options</h3>
+        <demo id="demo-groups">
+          <groupselectone--ml-combobox-glass
+            value="{{playground.groups.value}}"
+            placeholder="Choose a language..."
+            is-editing="true">
+            <Label>Programming Language</Label>
+            <Helper>Select your primary language</Helper>
+            <Group label="Frontend">
+              <Item value="js">JavaScript</Item>
+              <Item value="ts">TypeScript</Item>
+              <Item value="elm">Elm</Item>
+            </Group>
+            <Group label="Backend">
+              <Item value="py">Python</Item>
+              <Item value="go">Go</Item>
+              <Item value="rust">Rust</Item>
+            </Group>
+            <Empty>No languages found</Empty>
+          </groupselectone--ml-combobox-glass>
+        </demo>
+        <details class="mt-4">
+          <summary style="cursor:pointer; font-size:0.82rem; font-weight:500; color:rgba(255,255,255,0.5);">Properties</summary>
+          <div style="margin-top:0.5rem; padding:1rem; border:1px solid rgba(255,255,255,0.12); border-radius:10px; background:rgba(0,0,0,0.18);">
+            <aura--molecules--playground--widget-playground-state-text-102020 label="value" value="{{playground.groups.value}}"></aura--molecules--playground--widget-playground-state-text-102020>
+          </div>
+        </details>
+        <details class="mt-2">
+          <summary style="cursor:pointer; font-size:0.82rem; font-weight:500; color:rgba(255,255,255,0.5);">HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-groups">
+              <template>
+                <groupselectone--ml-combobox-glass
+                  value="{{playground.groups.value}}"
+                  placeholder="Choose a language..."
+                  is-editing="true">
+                  <Label>Programming Language</Label>
+                  <Helper>Select your primary language</Helper>
+                  <Group label="Frontend">
+                    <Item value="js">JavaScript</Item>
+                    <Item value="ts">TypeScript</Item>
+                    <Item value="elm">Elm</Item>
+                  </Group>
+                  <Group label="Backend">
+                    <Item value="py">Python</Item>
+                    <Item value="go">Go</Item>
+                    <Item value="rust">Rust</Item>
+                  </Group>
+                  <Empty>No languages found</Empty>
+                </groupselectone--ml-combobox-glass>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+      <!-- 3. Clearable + Error -->
+      <article style="background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.18); border-radius:14px; padding:1.5rem; box-shadow:0 4px 18px rgba(0,0,0,0.22); backdrop-filter:blur(10px);">
+        <h3 style="font-size:1.05rem; font-weight:600; color:rgba(255,255,255,0.9); margin-bottom:1rem;">Clearable + Error</h3>
+        <demo id="demo-clearable">
+          <groupselectone--ml-combobox-glass
+            value="{{playground.clearable.value}}"
+            error="{{playground.clearable.error}}"
+            placeholder="Select a role..."
+            clearable="true"
+            required="true"
+            is-editing="true">
+            <Label>User Role</Label>
+            <Item value="admin">Administrator</Item>
+            <Item value="editor">Editor</Item>
+            <Item value="viewer">Viewer</Item>
+            <Item value="guest" disabled>Guest (unavailable)</Item>
+          </groupselectone--ml-combobox-glass>
+        </demo>
+        <details class="mt-4">
+          <summary style="cursor:pointer; font-size:0.82rem; font-weight:500; color:rgba(255,255,255,0.5);">Properties</summary>
+          <div style="margin-top:0.5rem; padding:1rem; border:1px solid rgba(255,255,255,0.12); border-radius:10px; background:rgba(0,0,0,0.18);">
+            <aura--molecules--playground--widget-playground-state-text-102020 label="value" value="{{playground.clearable.value}}"></aura--molecules--playground--widget-playground-state-text-102020>
+            <aura--molecules--playground--widget-playground-state-text-102020 label="error" value="{{playground.clearable.error}}"></aura--molecules--playground--widget-playground-state-text-102020>
+          </div>
+        </details>
+        <details class="mt-2">
+          <summary style="cursor:pointer; font-size:0.82rem; font-weight:500; color:rgba(255,255,255,0.5);">HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-clearable">
+              <template>
+                <groupselectone--ml-combobox-glass
+                  value="{{playground.clearable.value}}"
+                  error="{{playground.clearable.error}}"
+                  placeholder="Select a role..."
+                  clearable="true"
+                  required="true"
+                  is-editing="true">
+                  <Label>User Role</Label>
+                  <Item value="admin">Administrator</Item>
+                  <Item value="editor">Editor</Item>
+                  <Item value="viewer">Viewer</Item>
+                  <Item value="guest" disabled>Guest (unavailable)</Item>
+                </groupselectone--ml-combobox-glass>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+      <!-- 4. Free Text -->
+      <article style="background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.18); border-radius:14px; padding:1.5rem; box-shadow:0 4px 18px rgba(0,0,0,0.22); backdrop-filter:blur(10px);">
+        <h3 style="font-size:1.05rem; font-weight:600; color:rgba(255,255,255,0.9); margin-bottom:1rem;">Free Text Mode</h3>
+        <demo id="demo-freetext">
+          <groupselectone--ml-combobox-glass
+            value="{{playground.freetext.value}}"
+            placeholder="Type or select a tag..."
+            free-text="true"
+            clearable="true"
+            is-editing="true">
+            <Label>Custom Tag</Label>
+            <Helper>You can type any value or pick from suggestions</Helper>
+            <Item value="bug">🐛 Bug</Item>
+            <Item value="feature">✨ Feature</Item>
+            <Item value="docs">📄 Docs</Item>
+            <Item value="refactor">♻️ Refactor</Item>
+          </groupselectone--ml-combobox-glass>
+        </demo>
+        <details class="mt-4">
+          <summary style="cursor:pointer; font-size:0.82rem; font-weight:500; color:rgba(255,255,255,0.5);">Properties</summary>
+          <div style="margin-top:0.5rem; padding:1rem; border:1px solid rgba(255,255,255,0.12); border-radius:10px; background:rgba(0,0,0,0.18);">
+            <aura--molecules--playground--widget-playground-state-text-102020 label="value" value="{{playground.freetext.value}}"></aura--molecules--playground--widget-playground-state-text-102020>
+          </div>
+        </details>
+        <details class="mt-2">
+          <summary style="cursor:pointer; font-size:0.82rem; font-weight:500; color:rgba(255,255,255,0.5);">HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-freetext">
+              <template>
+                <groupselectone--ml-combobox-glass
+                  value="{{playground.freetext.value}}"
+                  placeholder="Type or select a tag..."
+                  free-text="true"
+                  clearable="true"
+                  is-editing="true">
+                  <Label>Custom Tag</Label>
+                  <Helper>You can type any value or pick from suggestions</Helper>
+                  <Item value="bug">🐛 Bug</Item>
+                  <Item value="feature">✨ Feature</Item>
+                  <Item value="docs">📄 Docs</Item>
+                  <Item value="refactor">♻️ Refactor</Item>
+                </groupselectone--ml-combobox-glass>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+      <!-- 5. Disabled -->
+      <article style="background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.18); border-radius:14px; padding:1.5rem; box-shadow:0 4px 18px rgba(0,0,0,0.22); backdrop-filter:blur(10px);">
+        <h3 style="font-size:1.05rem; font-weight:600; color:rgba(255,255,255,0.9); margin-bottom:1rem;">Disabled</h3>
+        <demo id="demo-disabled">
+          <groupselectone--ml-combobox-glass
+            value="pro"
+            placeholder="Select a plan..."
+            disabled="true"
+            is-editing="true">
+            <Label>Subscription Plan</Label>
+            <Item value="free">Free</Item>
+            <Item value="pro">Pro</Item>
+            <Item value="enterprise">Enterprise</Item>
+          </groupselectone--ml-combobox-glass>
+        </demo>
+        <details class="mt-4">
+          <summary style="cursor:pointer; font-size:0.82rem; font-weight:500; color:rgba(255,255,255,0.5);">Properties</summary>
+          <div style="margin-top:0.5rem; padding:1rem; border:1px solid rgba(255,255,255,0.12); border-radius:10px; background:rgba(0,0,0,0.18);">
+            <p style="font-size:0.8rem; color:rgba(255,255,255,0.45);">disabled="true" — no editable props in this demo.</p>
+          </div>
+        </details>
+        <details class="mt-2">
+          <summary style="cursor:pointer; font-size:0.82rem; font-weight:500; color:rgba(255,255,255,0.5);">HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-disabled">
+              <template>
+                <groupselectone--ml-combobox-glass
+                  value="pro"
+                  placeholder="Select a plan..."
+                  disabled="true"
+                  is-editing="true">
+                  <Label>Subscription Plan</Label>
+                  <Item value="free">Free</Item>
+                  <Item value="pro">Pro</Item>
+                  <Item value="enterprise">Enterprise</Item>
+                </groupselectone--ml-combobox-glass>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+      <!-- 6. Read-only (view mode) -->
+      <article style="background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.18); border-radius:14px; padding:1.5rem; box-shadow:0 4px 18px rgba(0,0,0,0.22); backdrop-filter:blur(10px);">
+        <h3 style="font-size:1.05rem; font-weight:600; color:rgba(255,255,255,0.9); margin-bottom:1rem;">View Mode (is-editing=false)</h3>
+        <demo id="demo-viewmode">
+          <groupselectone--ml-combobox-glass
+            value="{{playground.viewmode.value}}"
+            is-editing="false"
+            placeholder="Nothing selected">
+            <Label>Assigned Region</Label>
+            <Item value="na">North America</Item>
+            <Item value="eu">Europe</Item>
+            <Item value="apac">Asia Pacific</Item>
+          </groupselectone--ml-combobox-glass>
+        </demo>
+        <details class="mt-4">
+          <summary style="cursor:pointer; font-size:0.82rem; font-weight:500; color:rgba(255,255,255,0.5);">Properties</summary>
+          <div style="margin-top:0.5rem; padding:1rem; border:1px solid rgba(255,255,255,0.12); border-radius:10px; background:rgba(0,0,0,0.18);">
+            <aura--molecules--playground--widget-playground-state-text-102020 label="value" value="{{playground.viewmode.value}}"></aura--molecules--playground--widget-playground-state-text-102020>
+          </div>
+        </details>
+        <details class="mt-2">
+          <summary style="cursor:pointer; font-size:0.82rem; font-weight:500; color:rgba(255,255,255,0.5);">HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-viewmode">
+              <template>
+                <groupselectone--ml-combobox-glass
+                  value="{{playground.viewmode.value}}"
+                  is-editing="false"
+                  placeholder="Nothing selected">
+                  <Label>Assigned Region</Label>
+                  <Item value="na">North America</Item>
+                  <Item value="eu">Europe</Item>
+                  <Item value="apac">Asia Pacific</Item>
+                </groupselectone--ml-combobox-glass>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+      <!-- 7. Loading State -->
+      <article style="background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.18); border-radius:14px; padding:1.5rem; box-shadow:0 4px 18px rgba(0,0,0,0.22); backdrop-filter:blur(10px);">
+        <h3 style="font-size:1.05rem; font-weight:600; color:rgba(255,255,255,0.9); margin-bottom:1rem;">Loading State</h3>
+        <demo id="demo-loading">
+          <groupselectone--ml-combobox-glass
+            value=""
+            placeholder="Fetching options..."
+            loading="true"
+            is-editing="true">
+            <Label>Remote Data</Label>
+            <Helper>Data is being fetched from the server</Helper>
+          </groupselectone--ml-combobox-glass>
+        </demo>
+        <details class="mt-4">
+          <summary style="cursor:pointer; font-size:0.82rem; font-weight:500; color:rgba(255,255,255,0.5);">Properties</summary>
+          <div style="margin-top:0.5rem; padding:1rem; border:1px solid rgba(255,255,255,0.12); border-radius:10px; background:rgba(0,0,0,0.18);">
+            <p style="font-size:0.8rem; color:rgba(255,255,255,0.45);">loading="true" — skeleton shown instead of input.</p>
+          </div>
+        </details>
+        <details class="mt-2">
+          <summary style="cursor:pointer; font-size:0.82rem; font-weight:500; color:rgba(255,255,255,0.5);">HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-loading">
+              <template>
+                <groupselectone--ml-combobox-glass
+                  value=""
+                  placeholder="Fetching options..."
+                  loading="true"
+                  is-editing="true">
+                  <Label>Remote Data</Label>
+                  <Helper>Data is being fetched from the server</Helper>
+                </groupselectone--ml-combobox-glass>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+      <!-- 8. Readonly -->
+      <article style="background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.18); border-radius:14px; padding:1.5rem; box-shadow:0 4px 18px rgba(0,0,0,0.22); backdrop-filter:blur(10px);">
+        <h3 style="font-size:1.05rem; font-weight:600; color:rgba(255,255,255,0.9); margin-bottom:1rem;">Readonly</h3>
+        <demo id="demo-readonly">
+          <groupselectone--ml-combobox-glass
+            value="{{playground.readonly.value}}"
+            placeholder="Select a country..."
+            readonly="true"
+            is-editing="true">
+            <Label>Country (readonly)</Label>
+            <Helper>This field cannot be changed</Helper>
+            <Item value="br">🇧🇷 Brazil</Item>
+            <Item value="us">🇺🇸 United States</Item>
+            <Item value="de">🇩🇪 Germany</Item>
+            <Item value="jp">🇯🇵 Japan</Item>
+          </groupselectone--ml-combobox-glass>
+        </demo>
+        <details class="mt-4">
+          <summary style="cursor:pointer; font-size:0.82rem; font-weight:500; color:rgba(255,255,255,0.5);">Properties</summary>
+          <div style="margin-top:0.5rem; padding:1rem; border:1px solid rgba(255,255,255,0.12); border-radius:10px; background:rgba(0,0,0,0.18);">
+            <aura--molecules--playground--widget-playground-state-text-102020 label="value" value="{{playground.readonly.value}}"></aura--molecules--playground--widget-playground-state-text-102020>
+          </div>
+        </details>
+        <details class="mt-2">
+          <summary style="cursor:pointer; font-size:0.82rem; font-weight:500; color:rgba(255,255,255,0.5);">HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-readonly">
+              <template>
+                <groupselectone--ml-combobox-glass
+                  value="{{playground.readonly.value}}"
+                  placeholder="Select a country..."
+                  readonly="true"
+                  is-editing="true">
+                  <Label>Country (readonly)</Label>
+                  <Helper>This field cannot be changed</Helper>
+                  <Item value="br">🇧🇷 Brazil</Item>
+                  <Item value="us">🇺🇸 United States</Item>
+                  <Item value="de">🇩🇪 Germany</Item>
+                  <Item value="jp">🇯🇵 Japan</Item>
+                </groupselectone--ml-combobox-glass>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+    </section>
+  </div>
+</div>
