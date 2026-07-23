@@ -1,0 +1,7 @@
+{
+  "savedAt": "2026-07-23T12:54:08.612Z",
+  "planId": "v5-demo",
+  "attempt": 1,
+  "ok": false,
+  "error": "script: demo page must not contain <script> tags"
+}

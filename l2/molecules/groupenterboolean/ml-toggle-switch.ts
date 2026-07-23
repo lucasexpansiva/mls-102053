@@ -61,9 +61,7 @@ export class ToggleSwitchMolecule extends MoleculeAuraElement {
   // ===========================================================================
   // EVENT HANDLERS
   // ===========================================================================
-  private getSlotClass(tag: string): string {
-    return this.getSlotAttr(tag, 'data-class') || '';
-  }
+
 
   private handleToggle() {
     if (!this.isEditing || this.disabled) return;

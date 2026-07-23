@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ml-multi-checkbox-list — Glass Variant Demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f172a 0%, #312e81 45%, #7e22ce 100%);
+      color: rgba(255,255,255,0.92);
+      padding: 48px 24px 80px;
+    }
+    .page-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .page-header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(90deg, #a5b4fc, #e879f9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+    .page-header p {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.5);
+      font-weight: 400;
+    }
+    .section {
+      max-width: 960px;
+      margin: 0 auto 48px;
+    }
+    .section-title {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(165,180,252,0.7);
+      margin-bottom: 20px;
+      padding-left: 4px;
+      border-left: 3px solid rgba(99,102,241,0.6);
+      padding-left: 10px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .grid-single {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    .card {
+      position: relative;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 14px;
+      padding: 24px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 4px 18px rgba(0,0,0,0.22);
+      overflow: hidden;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .card-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(165,180,252,0.65);
+      margin-bottom: 16px;
+    }
+    groupselectmany--ml-multi-checkbox-list-glass {
+      --ml-surface: rgba(255,255,255,0.07);
+      --ml-surface-dim: rgba(255,255,255,0.12);
+      --ml-on-surface: rgba(255,255,255,0.92);
+      --ml-on-surface-muted: rgba(255,255,255,0.55);
+      --ml-on-surface-faint: rgba(255,255,255,0.35);
+      --ml-primary: #818cf8;
+      --ml-on-primary: #0f172a;
+      --ml-error: #f87171;
+      --ml-on-error: #0f172a;
+      --ml-outline-variant: rgba(255,255,255,0.18);
+      --ml-outline-focus: #818cf8;
+      --ml-outline-error: #f87171;
+      --ml-radius-sm: 8px;
+      --ml-shadow-1: 0 2px 8px rgba(0,0,0,0.28);
+      --ml-font-family: 'Inter', system-ui, sans-serif;
+      --ml-font-weight-medium: 600;
+      --ml-transition: 250ms ease;
+      --ml-focus-ring-color: rgba(129,140,248,0.4);
+      --ml-disabled-opacity: 0.45;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-header">
+    <h1>Multi Checkbox List</h1>
+    <p>Glass variant · <code style="font-size:0.8em;color:rgba(165,180,252,0.7)">groupselectmany--ml-multi-checkbox-list-glass</code></p>
+  </div>
+
+  <!-- SECTION: Basic Usage -->
+  <div class="section">
+    <div class="section-title">Basic Usage</div>
+    <div class="grid">
+
+      <!-- Example 1: Simple permissions list -->
+      <div class="card">
+        <div class="card-label">Permissions Selector</div>
+        <groupselectmany--ml-multi-checkbox-list-glass
+          value="read,write"
+          name="permissions"
+          required>
+          <Label>User Permissions</Label>
+          <Helper>Select all permissions that apply.</Helper>
+          <Item value="read">Read</Item>
+          <Item value="write">Write</Item>
+          <Item value="execute">Execute</Item>
+          <Item value="admin" disabled>Admin (restricted)</Item>
+        </groupselectmany--ml-multi-checkbox-list-glass>
+      </div>
+
+      <!-- Example 2: Notifications preferences -->
+      <div class="card">
+        <div class="card-label">Notification Preferences</div>
+        <groupselectmany--ml-multi-checkbox-list-glass
+          value="email"
+          name="notifications"
+          placeholder="Choose notification channels">
+          <Label>Notify me via</Label>
+          <Helper>You can select multiple channels.</Helper>
+          <Item value="email">📧 Email</Item>
+          <Item value="sms">📱 SMS</Item>
+          <Item value="push">🔔 Push Notification</Item>
+          <Item value="slack">💬 Slack</Item>
+        </groupselectmany--ml-multi-checkbox-list-glass>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION: With Groups -->
+  <div class="section">
+    <div class="section-title">Grouped Items</div>
+    <div class="grid">
+
+      <!-- Example 3: Tech stack grouped -->
+      <div class="card">
+        <div class="card-label">Tech Stack — Grouped</div>
+        <groupselectmany--ml-multi-checkbox-list-glass
+          value="react,postgres"
+          name="techstack"
+          searchable>
+          <Label>Select Technologies</Label>
+          <Helper>Filter by typing in the search box.</Helper>
+          <Group label="Frontend">
+            <Item value="react">React</Item>
+            <Item value="vue">Vue.js</Item>
+            <Item value="svelte">Svelte</Item>
+          </Group>
+          <Group label="Backend">
+            <Item value="node">Node.js</Item>
+            <Item value="python">Python</Item>
+            <Item value="go">Go</Item>
+          </Group>
+          <Group label="Database">
+            <Item value="postgres">PostgreSQL</Item>
+            <Item value="mongo">MongoDB</Item>
+            <Item value="redis">Redis</Item>
+          </Group>
+        </groupselectmany--ml-multi-checkbox-list-glass>
+      </div>
+
+      <!-- Example 4: Max selection enforced -->
+      <div class="card">
+        <div class="card-label">Max Selection (2 of 5)</div>
+        <groupselectmany--ml-multi-checkbox-list-glass
+          value="design,marketing"
+          name="departments"
+          max-selection="2">
+          <Label>Assign to Departments</Label>
+          <Helper>You may select up to 2 departments.</Helper>
+          <Item value="engineering">⚙️ Engineering</Item>
+          <Item value="design">🎨 Design</Item>
+          <Item value="marketing">📣 Marketing</Item>
+          <Item value="sales">💼 Sales</Item>
+          <Item value="hr">🧑‍🤝‍🧑 Human Resources</Item>
+        </groupselectmany--ml-multi-checkbox-list-glass>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION: States -->
+  <div class="section">
+    <div class="section-title">States</div>
+    <div class="grid">
+
+      <!-- Example 5: Error state -->
+      <div class="card">
+        <div class="card-label">Error State</div>
+        <groupselectmany--ml-multi-checkbox-list-glass
+          value=""
+          name="roles"
+          error="Please select at least one role."
+          required>
+          <Label>Assign Roles</Label>
+          <Item value="viewer">👁 Viewer</Item>
+          <Item value="editor">✏️ Editor</Item>
+          <Item value="owner">👑 Owner</Item>
+        </groupselectmany--ml-multi-checkbox-list-glass>
+      </div>
+
+      <!-- Example 6: Disabled state -->
+      <div class="card">
+        <div class="card-label">Disabled State</div>
+        <groupselectmany--ml-multi-checkbox-list-glass
+          value="read"
+          name="perms-disabled"
+          disabled>
+          <Label>Permissions (Disabled)</Label>
+          <Helper>This field is currently disabled.</Helper>
+          <Item value="read">Read</Item>
+          <Item value="write">Write</Item>
+          <Item value="execute">Execute</Item>
+        </groupselectmany--ml-multi-checkbox-list-glass>
+      </div>
+
+      <!-- Example 7: Loading state -->
+      <div class="card">
+        <div class="card-label">Loading State</div>
+        <groupselectmany--ml-multi-checkbox-list-glass
+          value=""
+          name="loading-demo"
+          loading>
+          <Label>Fetching Options…</Label>
+          <Helper>Options are being loaded from the server.</Helper>
+          <Item value="opt1">Option 1</Item>
+          <Item value="opt2">Option 2</Item>
+        </groupselectmany--ml-multi-checkbox-list-glass>
+      </div>
+
+      <!-- Example 8: Readonly state -->
+      <div class="card">
+        <div class="card-label">Readonly State</div>
+        <groupselectmany--ml-multi-checkbox-list-glass
+          value="email,push"
+          name="notif-readonly"
+          readonly>
+          <Label>Notification Channels (Readonly)</Label>
+          <Helper>These settings are managed by your administrator.</Helper>
+          <Item value="email">📧 Email</Item>
+          <Item value="sms">📱 SMS</Item>
+          <Item value="push">🔔 Push</Item>
+        </groupselectmany--ml-multi-checkbox-list-glass>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION: View Mode & Empty -->
+  <div class="section">
+    <div class="section-title">View Mode &amp; Empty</div>
+    <div class="grid">
+
+      <!-- Example 9: View mode (is-editing=false) -->
+      <div class="card">
+        <div class="card-label">Read-Only View Mode</div>
+        <groupselectmany--ml-multi-checkbox-list-glass
+          value="react,postgres"
+          name="stack-view"
+          is-editing="false">
+          <Label>Selected Technologies</Label>
+          <Item value="react">React</Item>
+          <Item value="vue">Vue.js</Item>
+          <Item value="postgres">PostgreSQL</Item>
+          <Item value="mongo">MongoDB</Item>
+        </groupselectmany--ml-multi-checkbox-list-glass>
+      </div>
+
+      <!-- Example 10: Empty slot -->
+      <div class="card">
+        <div class="card-label">Empty State</div>
+        <groupselectmany--ml-multi-checkbox-list-glass
+          value=""
+          name="empty-demo">
+          <Label>Available Features</Label>
+          <Helper>No features are available for your plan.</Helper>
+          <Empty>🚫 No features available for your current plan. Please upgrade.</Empty>
+        </groupselectmany--ml-multi-checkbox-list-glass>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION: Advanced / Searchable -->
+  <div class="section">
+    <div class="section-title">Advanced — Searchable with Min Selection</div>
+    <div class="grid-single">
+
+      <!-- Example 11: Searchable + min-selection + groups -->
+      <div class="card">
+        <div class="card-label">Project Skills — Searchable, Min 2 Required</div>
+        <groupselectmany--ml-multi-checkbox-list-glass
+          value="figma"
+          name="skills"
+          searchable
+          min-selection="2"
+          required
+          placeholder="Search and select skills…">
+          <Label>Required Project Skills</Label>
+          <Helper>Select at least 2 skills relevant to this project.</Helper>
+          <Group label="Design">
+            <Item value="figma">🎨 Figma</Item>
+            <Item value="sketch">✏️ Sketch</Item>
+            <Item value="illustrator">🖌️ Illustrator</Item>
+          </Group>
+          <Group label="Development">
+            <Item value="typescript">🔷 TypeScript</Item>
+            <Item value="rust">🦀 Rust</Item>
+            <Item value="wasm">⚡ WebAssembly</Item>
+          </Group>
+          <Group label="DevOps">
+            <Item value="docker">🐳 Docker</Item>
+            <Item value="k8s">☸️ Kubernetes</Item>
+            <Item value="terraform">🏗️ Terraform</Item>
+          </Group>
+          <Empty>No skills match your search.</Empty>
+        </groupselectmany--ml-multi-checkbox-list-glass>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
