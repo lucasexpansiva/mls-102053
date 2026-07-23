@@ -132,10 +132,6 @@ export class ButtonStandardMolecule extends MoleculeAuraElement {
     ].filter(Boolean).join(' ');
   }
 
-  private getSlotClass(tag: string): string {
-    return this.getSlotAttr(tag, 'data-class') || '';
-  }
-
   private getIconClasses(sizeClass: string): string {
     return [
       'inline-flex items-center justify-center',

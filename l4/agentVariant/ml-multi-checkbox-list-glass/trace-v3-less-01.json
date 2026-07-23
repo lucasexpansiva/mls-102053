@@ -1,0 +1,8 @@
+{
+  "savedAt": "2026-07-23T12:52:21.628Z",
+  "planId": "v3-less",
+  "attempt": 1,
+  "ok": false,
+  "error": "extract: tool arguments do not contain submitVariantLess output",
+  "lessChars": 0
+}

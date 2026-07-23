@@ -188,9 +188,7 @@ return true;
 // ===========================================================================
 // RENDER HELPERS
 // ==========================================================================
-private getSlotClass(tag: string): string {
-return this.getSlotAttr(tag, 'data-class') || '';
-}
+
 private getLabelText(): string {
 if (this.hasSlot('Label')) {
 return this.getSlotContent('Label');

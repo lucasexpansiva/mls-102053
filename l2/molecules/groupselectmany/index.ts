@@ -4,6 +4,7 @@ import { customElement, state } from 'lit/decorators.js';
 import { StateLitElement } from '/_102029_/l2/stateLitElement.js';
 import '/_102053_/l2/molecules/groupselectmany/ml-multi-select-dropdown-test';
 import '/_102053_/l2/molecules/groupselectmany/ml-multi-select-dropdown-test-two';
+import '/_102053_/l2/molecules/groupselectmany/ml-multi-checkbox-list-glass';
 
 @customElement('molecules--groupselectmany--index-102053')
 export class GroupSelectManyIndex extends StateLitElement {

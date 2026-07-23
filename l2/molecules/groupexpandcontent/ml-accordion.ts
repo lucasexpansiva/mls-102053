@@ -123,12 +123,7 @@ export class MlAccordionMolecule extends MoleculeAuraElement {
         }
         return null;
     }
-    // ===========================================================================
-    // HELPERS
-    // ===========================================================================
-    private getSlotClass(tag: string): string {
-        return this.getSlotAttr(tag, 'data-class') || '';
-    }
+
 
     private getSectionContent(el: Element): string {
         const template = el.querySelector(':scope > template');

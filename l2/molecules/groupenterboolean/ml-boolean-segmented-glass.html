@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ml-boolean-segmented · Glass Variant Demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f172a 0%, #312e81 45%, #7e22ce 100%);
+      padding: 48px 24px;
+      color: rgba(255,255,255,0.92);
+    }
+    .page-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .page-header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      background: linear-gradient(90deg, #a5b4fc, #e879f9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+    .page-header p {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.5);
+      font-weight: 400;
+    }
+    .section {
+      margin-bottom: 40px;
+    }
+    .section-title {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(165,180,252,0.7);
+      margin-bottom: 18px;
+      padding-left: 4px;
+      border-left: 3px solid rgba(99,102,241,0.6);
+      padding-left: 10px;
+    }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      position: relative;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 14px;
+      padding: 24px 22px 20px;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.22);
+      overflow: hidden;
+      transition: box-shadow 250ms ease, transform 250ms ease;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.10) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .card:hover {
+      box-shadow: 0 8px 32px rgba(99,102,241,0.22);
+      transform: translateY(-2px);
+    }
+    .card-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(196,181,253,0.75);
+      margin-bottom: 14px;
+    }
+    .molecule-wrap {
+      --ml-surface: rgba(255,255,255,0.10);
+      --ml-surface-dim: rgba(255,255,255,0.16);
+      --ml-on-surface: rgba(255,255,255,0.92);
+      --ml-on-surface-muted: rgba(255,255,255,0.6);
+      --ml-on-surface-faint: rgba(255,255,255,0.35);
+      --ml-primary: #818cf8;
+      --ml-on-primary: #ffffff;
+      --ml-error: #f87171;
+      --ml-on-error: #ffffff;
+      --ml-outline-variant: rgba(255,255,255,0.18);
+      --ml-outline-focus: #a5b4fc;
+      --ml-outline-error: #f87171;
+      --ml-radius-sm: 10px;
+      --ml-shadow-1: 0 2px 8px rgba(0,0,0,0.25);
+      --ml-font-family: 'Inter', system-ui, sans-serif;
+      --ml-font-weight-medium: 600;
+      --ml-transition: 200ms ease;
+      --ml-focus-ring-color: rgba(129,140,248,0.45);
+      --ml-disabled-opacity: 0.38;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-header">
+    <h1>Boolean Segmented · Glass</h1>
+    <p>ml-boolean-segmented-glass &mdash; Interactive Yes / No segmented control</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ SECTION: Variants -->
+  <div class="section">
+    <div class="section-title">Variants</div>
+    <div class="cards-grid">
+
+      <!-- Example 1: Default (value=false) -->
+      <div class="card">
+        <div class="card-label">Default · No selected</div>
+        <div class="molecule-wrap">
+          <groupenterboolean--ml-boolean-segmented-glass
+            value="false"
+            name="notifications"
+            is-editing="true"
+          >
+            <Label>Enable notifications</Label>
+            <Helper>Receive alerts when something changes</Helper>
+          </groupenterboolean--ml-boolean-segmented-glass>
+        </div>
+      </div>
+
+      <!-- Example 2: Value = true -->
+      <div class="card">
+        <div class="card-label">Pre-selected · Yes</div>
+        <div class="molecule-wrap">
+          <groupenterboolean--ml-boolean-segmented-glass
+            value="true"
+            name="marketing"
+            is-editing="true"
+          >
+            <Label>Accept marketing emails</Label>
+            <Helper>We'll send you product updates and offers</Helper>
+          </groupenterboolean--ml-boolean-segmented-glass>
+        </div>
+      </div>
+
+      <!-- Example 3: No helper slot -->
+      <div class="card">
+        <div class="card-label">Label only · No helper</div>
+        <div class="molecule-wrap">
+          <groupenterboolean--ml-boolean-segmented-glass
+            value="false"
+            name="darkMode"
+            is-editing="true"
+          >
+            <Label>Dark mode</Label>
+          </groupenterboolean--ml-boolean-segmented-glass>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ SECTION: States -->
+  <div class="section">
+    <div class="section-title">States</div>
+    <div class="cards-grid">
+
+      <!-- Example 4: Disabled (value=false) -->
+      <div class="card">
+        <div class="card-label">Disabled · No</div>
+        <div class="molecule-wrap">
+          <groupenterboolean--ml-boolean-segmented-glass
+            value="false"
+            name="autoSave"
+            is-editing="true"
+            disabled="true"
+          >
+            <Label>Auto-save drafts</Label>
+            <Helper>This setting is managed by your admin</Helper>
+          </groupenterboolean--ml-boolean-segmented-glass>
+        </div>
+      </div>
+
+      <!-- Example 5: Disabled (value=true) -->
+      <div class="card">
+        <div class="card-label">Disabled · Yes</div>
+        <div class="molecule-wrap">
+          <groupenterboolean--ml-boolean-segmented-glass
+            value="true"
+            name="twoFactor"
+            is-editing="true"
+            disabled="true"
+          >
+            <Label>Two-factor authentication</Label>
+            <Helper>Required by your organisation policy</Helper>
+          </groupenterboolean--ml-boolean-segmented-glass>
+        </div>
+      </div>
+
+      <!-- Example 6: Error state -->
+      <div class="card">
+        <div class="card-label">Error state</div>
+        <div class="molecule-wrap">
+          <groupenterboolean--ml-boolean-segmented-glass
+            value="false"
+            name="terms"
+            is-editing="true"
+            error="You must accept the terms to continue"
+          >
+            <Label>Accept terms &amp; conditions</Label>
+            <Helper>Read our terms before proceeding</Helper>
+          </groupenterboolean--ml-boolean-segmented-glass>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ SECTION: View Mode -->
+  <div class="section">
+    <div class="section-title">View Mode (read-only)</div>
+    <div class="cards-grid">
+
+      <!-- Example 7: View mode, value=true -->
+      <div class="card">
+        <div class="card-label">Read-only · Yes</div>
+        <div class="molecule-wrap">
+          <groupenterboolean--ml-boolean-segmented-glass
+            value="true"
+            name="gdpr"
+            is-editing="false"
+          >
+            <Label>GDPR consent granted</Label>
+          </groupenterboolean--ml-boolean-segmented-glass>
+        </div>
+      </div>
+
+      <!-- Example 8: View mode, value=false -->
+      <div class="card">
+        <div class="card-label">Read-only · No</div>
+        <div class="molecule-wrap">
+          <groupenterboolean--ml-boolean-segmented-glass
+            value="false"
+            name="newsletter"
+            is-editing="false"
+          >
+            <Label>Newsletter subscription</Label>
+          </groupenterboolean--ml-boolean-segmented-glass>
+        </div>
+      </div>
+
+      <!-- Example 9: Playground / dynamic state -->
+      <div class="card">
+        <div class="card-label">Playground · Interactive</div>
+        <div class="molecule-wrap">
+          <groupenterboolean--ml-boolean-segmented-glass
+            value="{{playground.demo9.value}}"
+            error="{{playground.demo9.error}}"
+            name="playground"
+            is-editing="true"
+          >
+            <Label>Would you recommend us?</Label>
+            <Helper>Your feedback helps us improve</Helper>
+          </groupenterboolean--ml-boolean-segmented-glass>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
