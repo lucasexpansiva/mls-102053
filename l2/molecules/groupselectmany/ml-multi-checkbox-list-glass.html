@@ -1,0 +1,384 @@
+<div style="min-height:100vh; background: linear-gradient(135deg, #0f172a 0%, #312e81 45%, #7e22ce 100%); font-family: 'Inter', system-ui, sans-serif;">
+  <div class="mx-auto p-8 font-sans" style="max-width:1200px;">
+
+    <!-- Header -->
+    <header class="text-center mb-12">
+      <h1 style="font-size:2rem; font-weight:700; color:rgba(255,255,255,0.95); margin-bottom:0.5rem; letter-spacing:-0.01em;">Multi Checkbox List</h1>
+      <span style="display:inline-block; padding:0.25rem 1rem; background:rgba(99,102,241,0.25); border:1px solid rgba(99,102,241,0.5); color:rgba(199,210,254,0.95); border-radius:999px; font-size:0.8rem; font-weight:600; letter-spacing:0.04em;">select + many · glass</span>
+    </header>
+
+    <!-- State Widget -->
+    <aura--molecules--playground--widget-playground-state-102020 state='{"playground":{"basic":{"value":"apple","error":""},"searchable":{"value":"react,lit"},"groups":{"value":"read,write"},"maxsel":{"value":"starter"},"error":{"error":"Please select at least one option."},"viewmode":{"value":"editor,reviewer"}}}'>
+    </aura--molecules--playground--widget-playground-state-102020>
+
+    <!-- Demo Grid -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+
+      <!-- 1. Basic -->
+      <article style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.18); border-radius:14px; padding:1.5rem; box-shadow:0 4px 18px rgba(0,0,0,0.22); backdrop-filter:blur(10px); position:relative; overflow:hidden;">
+        <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.35),transparent);"></div>
+        <h3 style="font-size:1rem; font-weight:600; color:rgba(255,255,255,0.9); margin-bottom:1rem;">Basic Selection</h3>
+        <demo id="demo-basic">
+          <groupselectmany--ml-multi-checkbox-list-glass
+            value="{{playground.basic.value}}"
+            error="{{playground.basic.error}}"
+            is-editing="true">
+            <Label>Choose Fruits</Label>
+            <Item value="apple">🍎 Apple</Item>
+            <Item value="banana">🍌 Banana</Item>
+            <Item value="grape">🍇 Grape</Item>
+            <Item value="mango">🥭 Mango</Item>
+            <Helper>Pick your favourite fruits</Helper>
+          </groupselectmany--ml-multi-checkbox-list-glass>
+        </demo>
+        <details class="mt-4">
+          <summary style="cursor:pointer; font-size:0.8rem; font-weight:600; color:rgba(199,210,254,0.7); list-style:none;">⚙ Properties</summary>
+          <div style="margin-top:0.75rem; padding:1rem; background:rgba(0,0,0,0.25); border:1px solid rgba(255,255,255,0.1); border-radius:10px;">
+            <aura--molecules--playground--widget-playground-state-text-102020 label="value" value="{{playground.basic.value}}"></aura--molecules--playground--widget-playground-state-text-102020>
+            <aura--molecules--playground--widget-playground-state-text-102020 label="error" value="{{playground.basic.error}}"></aura--molecules--playground--widget-playground-state-text-102020>
+          </div>
+        </details>
+        <details class="mt-2">
+          <summary style="cursor:pointer; font-size:0.8rem; font-weight:600; color:rgba(199,210,254,0.7); list-style:none;">&#60;/&#62; HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-basic">
+              <template>
+                <groupselectmany--ml-multi-checkbox-list-glass
+                  value="{{playground.basic.value}}"
+                  error="{{playground.basic.error}}"
+                  is-editing="true">
+                  <Label>Choose Fruits</Label>
+                  <Item value="apple">🍎 Apple</Item>
+                  <Item value="banana">🍌 Banana</Item>
+                  <Item value="grape">🍇 Grape</Item>
+                  <Item value="mango">🥭 Mango</Item>
+                  <Helper>Pick your favourite fruits</Helper>
+                </groupselectmany--ml-multi-checkbox-list-glass>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+      <!-- 2. Searchable -->
+      <article style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.18); border-radius:14px; padding:1.5rem; box-shadow:0 4px 18px rgba(0,0,0,0.22); backdrop-filter:blur(10px); position:relative; overflow:hidden;">
+        <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.35),transparent);"></div>
+        <h3 style="font-size:1rem; font-weight:600; color:rgba(255,255,255,0.9); margin-bottom:1rem;">Searchable</h3>
+        <demo id="demo-searchable">
+          <groupselectmany--ml-multi-checkbox-list-glass
+            value="{{playground.searchable.value}}"
+            searchable="true"
+            is-editing="true">
+            <Label>Select Technologies</Label>
+            <Item value="react">⚛️ React</Item>
+            <Item value="vue">💚 Vue</Item>
+            <Item value="angular">🔴 Angular</Item>
+            <Item value="svelte">🧡 Svelte</Item>
+            <Item value="lit">🔥 Lit</Item>
+            <Item value="solid">💙 SolidJS</Item>
+            <Helper>Search and select your stack</Helper>
+          </groupselectmany--ml-multi-checkbox-list-glass>
+        </demo>
+        <details class="mt-4">
+          <summary style="cursor:pointer; font-size:0.8rem; font-weight:600; color:rgba(199,210,254,0.7); list-style:none;">⚙ Properties</summary>
+          <div style="margin-top:0.75rem; padding:1rem; background:rgba(0,0,0,0.25); border:1px solid rgba(255,255,255,0.1); border-radius:10px;">
+            <aura--molecules--playground--widget-playground-state-text-102020 label="value" value="{{playground.searchable.value}}"></aura--molecules--playground--widget-playground-state-text-102020>
+          </div>
+        </details>
+        <details class="mt-2">
+          <summary style="cursor:pointer; font-size:0.8rem; font-weight:600; color:rgba(199,210,254,0.7); list-style:none;">&#60;/&#62; HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-searchable">
+              <template>
+                <groupselectmany--ml-multi-checkbox-list-glass
+                  value="{{playground.searchable.value}}"
+                  searchable="true"
+                  is-editing="true">
+                  <Label>Select Technologies</Label>
+                  <Item value="react">⚛️ React</Item>
+                  <Item value="vue">💚 Vue</Item>
+                  <Item value="angular">🔴 Angular</Item>
+                  <Item value="svelte">🧡 Svelte</Item>
+                  <Item value="lit">🔥 Lit</Item>
+                  <Item value="solid">💙 SolidJS</Item>
+                  <Helper>Search and select your stack</Helper>
+                </groupselectmany--ml-multi-checkbox-list-glass>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+      <!-- 3. With Groups -->
+      <article style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.18); border-radius:14px; padding:1.5rem; box-shadow:0 4px 18px rgba(0,0,0,0.22); backdrop-filter:blur(10px); position:relative; overflow:hidden;">
+        <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.35),transparent);"></div>
+        <h3 style="font-size:1rem; font-weight:600; color:rgba(255,255,255,0.9); margin-bottom:1rem;">Grouped Items</h3>
+        <demo id="demo-groups">
+          <groupselectmany--ml-multi-checkbox-list-glass
+            value="{{playground.groups.value}}"
+            is-editing="true">
+            <Label>Permissions</Label>
+            <Group label="Content">
+              <Item value="read">Read</Item>
+              <Item value="write">Write</Item>
+              <Item value="publish">Publish</Item>
+            </Group>
+            <Group label="Administration">
+              <Item value="manage_users">Manage Users</Item>
+              <Item value="manage_roles">Manage Roles</Item>
+              <Item value="admin" disabled>Super Admin (restricted)</Item>
+            </Group>
+            <Helper>Assign permissions to this role</Helper>
+          </groupselectmany--ml-multi-checkbox-list-glass>
+        </demo>
+        <details class="mt-4">
+          <summary style="cursor:pointer; font-size:0.8rem; font-weight:600; color:rgba(199,210,254,0.7); list-style:none;">⚙ Properties</summary>
+          <div style="margin-top:0.75rem; padding:1rem; background:rgba(0,0,0,0.25); border:1px solid rgba(255,255,255,0.1); border-radius:10px;">
+            <aura--molecules--playground--widget-playground-state-text-102020 label="value" value="{{playground.groups.value}}"></aura--molecules--playground--widget-playground-state-text-102020>
+          </div>
+        </details>
+        <details class="mt-2">
+          <summary style="cursor:pointer; font-size:0.8rem; font-weight:600; color:rgba(199,210,254,0.7); list-style:none;">&#60;/&#62; HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-groups">
+              <template>
+                <groupselectmany--ml-multi-checkbox-list-glass
+                  value="{{playground.groups.value}}"
+                  is-editing="true">
+                  <Label>Permissions</Label>
+                  <Group label="Content">
+                    <Item value="read">Read</Item>
+                    <Item value="write">Write</Item>
+                    <Item value="publish">Publish</Item>
+                  </Group>
+                  <Group label="Administration">
+                    <Item value="manage_users">Manage Users</Item>
+                    <Item value="manage_roles">Manage Roles</Item>
+                    <Item value="admin" disabled>Super Admin (restricted)</Item>
+                  </Group>
+                  <Helper>Assign permissions to this role</Helper>
+                </groupselectmany--ml-multi-checkbox-list-glass>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+      <!-- 4. Max Selection -->
+      <article style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.18); border-radius:14px; padding:1.5rem; box-shadow:0 4px 18px rgba(0,0,0,0.22); backdrop-filter:blur(10px); position:relative; overflow:hidden;">
+        <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.35),transparent);"></div>
+        <h3 style="font-size:1rem; font-weight:600; color:rgba(255,255,255,0.9); margin-bottom:1rem;">Max Selection (2)</h3>
+        <demo id="demo-maxsel">
+          <groupselectmany--ml-multi-checkbox-list-glass
+            value="{{playground.maxsel.value}}"
+            max-selection="2"
+            is-editing="true">
+            <Label>Pick up to 2 Plans</Label>
+            <Item value="starter">🌱 Starter</Item>
+            <Item value="pro">⚡ Pro</Item>
+            <Item value="business">🏢 Business</Item>
+            <Item value="enterprise">🚀 Enterprise</Item>
+            <Helper>You can select at most 2 plans</Helper>
+          </groupselectmany--ml-multi-checkbox-list-glass>
+        </demo>
+        <details class="mt-4">
+          <summary style="cursor:pointer; font-size:0.8rem; font-weight:600; color:rgba(199,210,254,0.7); list-style:none;">⚙ Properties</summary>
+          <div style="margin-top:0.75rem; padding:1rem; background:rgba(0,0,0,0.25); border:1px solid rgba(255,255,255,0.1); border-radius:10px;">
+            <aura--molecules--playground--widget-playground-state-text-102020 label="value" value="{{playground.maxsel.value}}"></aura--molecules--playground--widget-playground-state-text-102020>
+          </div>
+        </details>
+        <details class="mt-2">
+          <summary style="cursor:pointer; font-size:0.8rem; font-weight:600; color:rgba(199,210,254,0.7); list-style:none;">&#60;/&#62; HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-maxsel">
+              <template>
+                <groupselectmany--ml-multi-checkbox-list-glass
+                  value="{{playground.maxsel.value}}"
+                  max-selection="2"
+                  is-editing="true">
+                  <Label>Pick up to 2 Plans</Label>
+                  <Item value="starter">🌱 Starter</Item>
+                  <Item value="pro">⚡ Pro</Item>
+                  <Item value="business">🏢 Business</Item>
+                  <Item value="enterprise">🚀 Enterprise</Item>
+                  <Helper>You can select at most 2 plans</Helper>
+                </groupselectmany--ml-multi-checkbox-list-glass>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+      <!-- 5. Error State -->
+      <article style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.18); border-radius:14px; padding:1.5rem; box-shadow:0 4px 18px rgba(0,0,0,0.22); backdrop-filter:blur(10px); position:relative; overflow:hidden;">
+        <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.35),transparent);"></div>
+        <h3 style="font-size:1rem; font-weight:600; color:rgba(255,255,255,0.9); margin-bottom:1rem;">Error State</h3>
+        <demo id="demo-error">
+          <groupselectmany--ml-multi-checkbox-list-glass
+            value=""
+            error="{{playground.error.error}}"
+            required="true"
+            is-editing="true">
+            <Label>Required Field</Label>
+            <Item value="opt1">Option Alpha</Item>
+            <Item value="opt2">Option Beta</Item>
+            <Item value="opt3">Option Gamma</Item>
+          </groupselectmany--ml-multi-checkbox-list-glass>
+        </demo>
+        <details class="mt-4">
+          <summary style="cursor:pointer; font-size:0.8rem; font-weight:600; color:rgba(199,210,254,0.7); list-style:none;">⚙ Properties</summary>
+          <div style="margin-top:0.75rem; padding:1rem; background:rgba(0,0,0,0.25); border:1px solid rgba(255,255,255,0.1); border-radius:10px;">
+            <aura--molecules--playground--widget-playground-state-text-102020 label="error" value="{{playground.error.error}}"></aura--molecules--playground--widget-playground-state-text-102020>
+          </div>
+        </details>
+        <details class="mt-2">
+          <summary style="cursor:pointer; font-size:0.8rem; font-weight:600; color:rgba(199,210,254,0.7); list-style:none;">&#60;/&#62; HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-error">
+              <template>
+                <groupselectmany--ml-multi-checkbox-list-glass
+                  value=""
+                  error="{{playground.error.error}}"
+                  required="true"
+                  is-editing="true">
+                  <Label>Required Field</Label>
+                  <Item value="opt1">Option Alpha</Item>
+                  <Item value="opt2">Option Beta</Item>
+                  <Item value="opt3">Option Gamma</Item>
+                </groupselectmany--ml-multi-checkbox-list-glass>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+      <!-- 6. Disabled -->
+      <article style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.18); border-radius:14px; padding:1.5rem; box-shadow:0 4px 18px rgba(0,0,0,0.22); backdrop-filter:blur(10px); position:relative; overflow:hidden;">
+        <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.35),transparent);"></div>
+        <h3 style="font-size:1rem; font-weight:600; color:rgba(255,255,255,0.9); margin-bottom:1rem;">Disabled</h3>
+        <demo id="demo-disabled">
+          <groupselectmany--ml-multi-checkbox-list-glass
+            value="read,write"
+            disabled="true"
+            is-editing="true">
+            <Label>Access Level (disabled)</Label>
+            <Item value="read">Read</Item>
+            <Item value="write">Write</Item>
+            <Item value="execute">Execute</Item>
+            <Helper>This field is disabled</Helper>
+          </groupselectmany--ml-multi-checkbox-list-glass>
+        </demo>
+        <details class="mt-4">
+          <summary style="cursor:pointer; font-size:0.8rem; font-weight:600; color:rgba(199,210,254,0.7); list-style:none;">⚙ Properties</summary>
+          <div style="margin-top:0.75rem; padding:1rem; background:rgba(0,0,0,0.25); border:1px solid rgba(255,255,255,0.1); border-radius:10px;">
+            <p style="font-size:0.75rem; color:rgba(255,255,255,0.45);">disabled="true" — no editable props</p>
+          </div>
+        </details>
+        <details class="mt-2">
+          <summary style="cursor:pointer; font-size:0.8rem; font-weight:600; color:rgba(199,210,254,0.7); list-style:none;">&#60;/&#62; HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-disabled">
+              <template>
+                <groupselectmany--ml-multi-checkbox-list-glass
+                  value="read,write"
+                  disabled="true"
+                  is-editing="true">
+                  <Label>Access Level (disabled)</Label>
+                  <Item value="read">Read</Item>
+                  <Item value="write">Write</Item>
+                  <Item value="execute">Execute</Item>
+                  <Helper>This field is disabled</Helper>
+                </groupselectmany--ml-multi-checkbox-list-glass>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+      <!-- 7. Read-only / View Mode -->
+      <article style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.18); border-radius:14px; padding:1.5rem; box-shadow:0 4px 18px rgba(0,0,0,0.22); backdrop-filter:blur(10px); position:relative; overflow:hidden;">
+        <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.35),transparent);"></div>
+        <h3 style="font-size:1rem; font-weight:600; color:rgba(255,255,255,0.9); margin-bottom:1rem;">View Mode (is-editing=false)</h3>
+        <demo id="demo-viewmode">
+          <groupselectmany--ml-multi-checkbox-list-glass
+            value="{{playground.viewmode.value}}"
+            is-editing="false">
+            <Label>Selected Roles</Label>
+            <Item value="editor">Editor</Item>
+            <Item value="reviewer">Reviewer</Item>
+            <Item value="admin">Admin</Item>
+          </groupselectmany--ml-multi-checkbox-list-glass>
+        </demo>
+        <details class="mt-4">
+          <summary style="cursor:pointer; font-size:0.8rem; font-weight:600; color:rgba(199,210,254,0.7); list-style:none;">⚙ Properties</summary>
+          <div style="margin-top:0.75rem; padding:1rem; background:rgba(0,0,0,0.25); border:1px solid rgba(255,255,255,0.1); border-radius:10px;">
+            <aura--molecules--playground--widget-playground-state-text-102020 label="value" value="{{playground.viewmode.value}}"></aura--molecules--playground--widget-playground-state-text-102020>
+          </div>
+        </details>
+        <details class="mt-2">
+          <summary style="cursor:pointer; font-size:0.8rem; font-weight:600; color:rgba(199,210,254,0.7); list-style:none;">&#60;/&#62; HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-viewmode">
+              <template>
+                <groupselectmany--ml-multi-checkbox-list-glass
+                  value="{{playground.viewmode.value}}"
+                  is-editing="false">
+                  <Label>Selected Roles</Label>
+                  <Item value="editor">Editor</Item>
+                  <Item value="reviewer">Reviewer</Item>
+                  <Item value="admin">Admin</Item>
+                </groupselectmany--ml-multi-checkbox-list-glass>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+      <!-- 8. Loading State -->
+      <article style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.18); border-radius:14px; padding:1.5rem; box-shadow:0 4px 18px rgba(0,0,0,0.22); backdrop-filter:blur(10px); position:relative; overflow:hidden;">
+        <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.35),transparent);"></div>
+        <h3 style="font-size:1rem; font-weight:600; color:rgba(255,255,255,0.9); margin-bottom:1rem;">Loading State</h3>
+        <demo id="demo-loading">
+          <groupselectmany--ml-multi-checkbox-list-glass
+            value=""
+            loading="true"
+            is-editing="true">
+            <Label>Fetching Options…</Label>
+            <Item value="a">Item A</Item>
+            <Item value="b">Item B</Item>
+          </groupselectmany--ml-multi-checkbox-list-glass>
+        </demo>
+        <details class="mt-4">
+          <summary style="cursor:pointer; font-size:0.8rem; font-weight:600; color:rgba(199,210,254,0.7); list-style:none;">⚙ Properties</summary>
+          <div style="margin-top:0.75rem; padding:1rem; background:rgba(0,0,0,0.25); border:1px solid rgba(255,255,255,0.1); border-radius:10px;">
+            <p style="font-size:0.75rem; color:rgba(255,255,255,0.45);">loading="true" — static demo</p>
+          </div>
+        </details>
+        <details class="mt-2">
+          <summary style="cursor:pointer; font-size:0.8rem; font-weight:600; color:rgba(199,210,254,0.7); list-style:none;">&#60;/&#62; HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-loading">
+              <template>
+                <groupselectmany--ml-multi-checkbox-list-glass
+                  value=""
+                  loading="true"
+                  is-editing="true">
+                  <Label>Fetching Options…</Label>
+                  <Item value="a">Item A</Item>
+                  <Item value="b">Item B</Item>
+                </groupselectmany--ml-multi-checkbox-list-glass>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+    </section>
+
+    <!-- Footer -->
+    <footer style="text-align:center; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.1);">
+      <p style="font-size:0.75rem; color:rgba(255,255,255,0.3); font-weight:500;">groupselectmany--ml-multi-checkbox-list-glass · Collab Aura · Glass Theme</p>
+    </footer>
+
+  </div>
+</div>
