@@ -1,7 +1,8 @@
 {
-  "savedAt": "2026-07-24T11:49:25.889Z",
+  "savedAt": "2026-07-24T13:56:33.171Z",
   "planId": "v3-less",
   "attempt": 1,
-  "ok": true,
-  "lessChars": 8436
+  "ok": false,
+  "error": "braces: unbalanced braces: 26 '{' vs 27 '}'",
+  "lessChars": 9115
 }

@@ -1,0 +1,371 @@
+<div style="min-height:100vh; background: linear-gradient(135deg, #0f172a 0%, #312e81 45%, #7e22ce 100%); font-family: 'Inter', system-ui, sans-serif;">
+  <div class="mx-auto p-8">
+
+    <!-- Header -->
+    <header class="text-center mb-12">
+      <h1 class="text-3xl font-semibold mb-2" style="color: rgba(255,255,255,0.95);">Discrete Slider</h1>
+      <span class="inline-block px-3 py-1 rounded-full text-sm font-medium" style="background: rgba(99,102,241,0.25); color: rgba(199,210,254,0.95); border: 1px solid rgba(255,255,255,0.18);">groupselectone · glass</span>
+    </header>
+
+    <!-- State Widget -->
+    <aura--molecules--playground--widget-playground-state-102020 state='{"playground":{"basic":{"value":"md","error":""},"error":{"value":"","error":"Please select a priority level."},"groups":{"value":"normal"},"fill":{"value":"3"},"disabledItems":{"value":"growth"}}}'>
+    </aura--molecules--playground--widget-playground-state-102020>
+
+    <!-- Demo Grid -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+
+      <!-- 1. Basic -->
+      <article style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.18); border-radius: 14px; padding: 24px; backdrop-filter: blur(10px); box-shadow: 0 4px 18px rgba(0,0,0,0.28);">
+        <h3 class="text-lg font-semibold mb-4" style="color: rgba(255,255,255,0.92);">Basic</h3>
+        <demo id="demo-basic">
+          <groupselectone--ml-discrete-slider-glass
+            value="{{playground.basic.value}}"
+            error="{{playground.basic.error}}"
+            name="basic"
+            is-editing="true">
+            <Label>Choose a size</Label>
+            <Item value="xs">XS</Item>
+            <Item value="sm">SM</Item>
+            <Item value="md">MD</Item>
+            <Item value="lg">LG</Item>
+            <Item value="xl">XL</Item>
+            <Helper>Select the size that fits you best.</Helper>
+          </groupselectone--ml-discrete-slider-glass>
+        </demo>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-sm font-medium" style="color: rgba(199,210,254,0.75);">Properties</summary>
+          <div class="mt-2 p-4 rounded-lg" style="background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.12);">
+            <aura--molecules--playground--widget-playground-state-text-102020 label="value" value="{{playground.basic.value}}"></aura--molecules--playground--widget-playground-state-text-102020>
+            <aura--molecules--playground--widget-playground-state-text-102020 label="error" value="{{playground.basic.error}}"></aura--molecules--playground--widget-playground-state-text-102020>
+          </div>
+        </details>
+        <details class="mt-2">
+          <summary class="cursor-pointer text-sm font-medium" style="color: rgba(199,210,254,0.75);">HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-basic">
+              <template>
+                <groupselectone--ml-discrete-slider-glass
+                  value="{{playground.basic.value}}"
+                  error="{{playground.basic.error}}"
+                  name="basic"
+                  is-editing="true">
+                  <Label>Choose a size</Label>
+                  <Item value="xs">XS</Item>
+                  <Item value="sm">SM</Item>
+                  <Item value="md">MD</Item>
+                  <Item value="lg">LG</Item>
+                  <Item value="xl">XL</Item>
+                  <Helper>Select the size that fits you best.</Helper>
+                </groupselectone--ml-discrete-slider-glass>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+      <!-- 2. With Error -->
+      <article style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.18); border-radius: 14px; padding: 24px; backdrop-filter: blur(10px); box-shadow: 0 4px 18px rgba(0,0,0,0.28);">
+        <h3 class="text-lg font-semibold mb-4" style="color: rgba(255,255,255,0.92);">With Error</h3>
+        <demo id="demo-error">
+          <groupselectone--ml-discrete-slider-glass
+            value="{{playground.error.value}}"
+            error="{{playground.error.error}}"
+            name="error-demo"
+            is-editing="true"
+            required="true">
+            <Label>Priority Level</Label>
+            <Item value="low">Low</Item>
+            <Item value="medium">Medium</Item>
+            <Item value="high">High</Item>
+            <Item value="critical">Critical</Item>
+          </groupselectone--ml-discrete-slider-glass>
+        </demo>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-sm font-medium" style="color: rgba(199,210,254,0.75);">Properties</summary>
+          <div class="mt-2 p-4 rounded-lg" style="background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.12);">
+            <aura--molecules--playground--widget-playground-state-text-102020 label="value" value="{{playground.error.value}}"></aura--molecules--playground--widget-playground-state-text-102020>
+            <aura--molecules--playground--widget-playground-state-text-102020 label="error" value="{{playground.error.error}}"></aura--molecules--playground--widget-playground-state-text-102020>
+          </div>
+        </details>
+        <details class="mt-2">
+          <summary class="cursor-pointer text-sm font-medium" style="color: rgba(199,210,254,0.75);">HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-error">
+              <template>
+                <groupselectone--ml-discrete-slider-glass
+                  value="{{playground.error.value}}"
+                  error="{{playground.error.error}}"
+                  name="error-demo"
+                  is-editing="true"
+                  required="true">
+                  <Label>Priority Level</Label>
+                  <Item value="low">Low</Item>
+                  <Item value="medium">Medium</Item>
+                  <Item value="high">High</Item>
+                  <Item value="critical">Critical</Item>
+                </groupselectone--ml-discrete-slider-glass>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+      <!-- 3. Disabled -->
+      <article style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.18); border-radius: 14px; padding: 24px; backdrop-filter: blur(10px); box-shadow: 0 4px 18px rgba(0,0,0,0.28);">
+        <h3 class="text-lg font-semibold mb-4" style="color: rgba(255,255,255,0.92);">Disabled</h3>
+        <demo id="demo-disabled">
+          <groupselectone--ml-discrete-slider-glass
+            value="medium"
+            name="disabled-demo"
+            is-editing="true"
+            disabled="true">
+            <Label>Volume</Label>
+            <Item value="mute">Mute</Item>
+            <Item value="low">Low</Item>
+            <Item value="medium">Medium</Item>
+            <Item value="high">High</Item>
+            <Helper>Volume control is currently locked.</Helper>
+          </groupselectone--ml-discrete-slider-glass>
+        </demo>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-sm font-medium" style="color: rgba(199,210,254,0.75);">HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-disabled">
+              <template>
+                <groupselectone--ml-discrete-slider-glass
+                  value="medium"
+                  name="disabled-demo"
+                  is-editing="true"
+                  disabled="true">
+                  <Label>Volume</Label>
+                  <Item value="mute">Mute</Item>
+                  <Item value="low">Low</Item>
+                  <Item value="medium">Medium</Item>
+                  <Item value="high">High</Item>
+                  <Helper>Volume control is currently locked.</Helper>
+                </groupselectone--ml-discrete-slider-glass>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+      <!-- 4. Read-only / View Mode -->
+      <article style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.18); border-radius: 14px; padding: 24px; backdrop-filter: blur(10px); box-shadow: 0 4px 18px rgba(0,0,0,0.28);">
+        <h3 class="text-lg font-semibold mb-4" style="color: rgba(255,255,255,0.92);">View Mode (is-editing=false)</h3>
+        <demo id="demo-view">
+          <groupselectone--ml-discrete-slider-glass
+            value="pro"
+            name="view-demo"
+            is-editing="false">
+            <Label>Current Plan</Label>
+            <Item value="free">Free</Item>
+            <Item value="pro">Pro</Item>
+            <Item value="enterprise">Enterprise</Item>
+          </groupselectone--ml-discrete-slider-glass>
+        </demo>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-sm font-medium" style="color: rgba(199,210,254,0.75);">HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-view">
+              <template>
+                <groupselectone--ml-discrete-slider-glass
+                  value="pro"
+                  name="view-demo"
+                  is-editing="false">
+                  <Label>Current Plan</Label>
+                  <Item value="free">Free</Item>
+                  <Item value="pro">Pro</Item>
+                  <Item value="enterprise">Enterprise</Item>
+                </groupselectone--ml-discrete-slider-glass>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+      <!-- 5. With Groups -->
+      <article style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.18); border-radius: 14px; padding: 24px; backdrop-filter: blur(10px); box-shadow: 0 4px 18px rgba(0,0,0,0.28);">
+        <h3 class="text-lg font-semibold mb-4" style="color: rgba(255,255,255,0.92);">Grouped Items</h3>
+        <demo id="demo-groups">
+          <groupselectone--ml-discrete-slider-glass
+            value="{{playground.groups.value}}"
+            name="groups-demo"
+            is-editing="true">
+            <Label>Speed Tier</Label>
+            <Group label="Standard">
+              <Item value="slow">Slow</Item>
+              <Item value="normal">Normal</Item>
+              <Item value="fast">Fast</Item>
+            </Group>
+            <Group label="Premium">
+              <Item value="turbo">Turbo</Item>
+              <Item value="ultra">Ultra</Item>
+            </Group>
+            <Helper>Choose your preferred connection speed.</Helper>
+          </groupselectone--ml-discrete-slider-glass>
+        </demo>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-sm font-medium" style="color: rgba(199,210,254,0.75);">Properties</summary>
+          <div class="mt-2 p-4 rounded-lg" style="background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.12);">
+            <aura--molecules--playground--widget-playground-state-text-102020 label="value" value="{{playground.groups.value}}"></aura--molecules--playground--widget-playground-state-text-102020>
+          </div>
+        </details>
+        <details class="mt-2">
+          <summary class="cursor-pointer text-sm font-medium" style="color: rgba(199,210,254,0.75);">HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-groups">
+              <template>
+                <groupselectone--ml-discrete-slider-glass
+                  value="{{playground.groups.value}}"
+                  name="groups-demo"
+                  is-editing="true">
+                  <Label>Speed Tier</Label>
+                  <Group label="Standard">
+                    <Item value="slow">Slow</Item>
+                    <Item value="normal">Normal</Item>
+                    <Item value="fast">Fast</Item>
+                  </Group>
+                  <Group label="Premium">
+                    <Item value="turbo">Turbo</Item>
+                    <Item value="ultra">Ultra</Item>
+                  </Group>
+                  <Helper>Choose your preferred connection speed.</Helper>
+                </groupselectone--ml-discrete-slider-glass>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+      <!-- 6. Fill Previous -->
+      <article style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.18); border-radius: 14px; padding: 24px; backdrop-filter: blur(10px); box-shadow: 0 4px 18px rgba(0,0,0,0.28);">
+        <h3 class="text-lg font-semibold mb-4" style="color: rgba(255,255,255,0.92);">Fill Previous</h3>
+        <demo id="demo-fill">
+          <groupselectone--ml-discrete-slider-glass
+            value="{{playground.fill.value}}"
+            name="fill-demo"
+            is-editing="true"
+            fill-previous="true">
+            <Label>Satisfaction Score</Label>
+            <Item value="1">1</Item>
+            <Item value="2">2</Item>
+            <Item value="3">3</Item>
+            <Item value="4">4</Item>
+            <Item value="5">5</Item>
+            <Helper>Rate your experience from 1 to 5.</Helper>
+          </groupselectone--ml-discrete-slider-glass>
+        </demo>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-sm font-medium" style="color: rgba(199,210,254,0.75);">Properties</summary>
+          <div class="mt-2 p-4 rounded-lg" style="background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.12);">
+            <aura--molecules--playground--widget-playground-state-text-102020 label="value" value="{{playground.fill.value}}"></aura--molecules--playground--widget-playground-state-text-102020>
+          </div>
+        </details>
+        <details class="mt-2">
+          <summary class="cursor-pointer text-sm font-medium" style="color: rgba(199,210,254,0.75);">HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-fill">
+              <template>
+                <groupselectone--ml-discrete-slider-glass
+                  value="{{playground.fill.value}}"
+                  name="fill-demo"
+                  is-editing="true"
+                  fill-previous="true">
+                  <Label>Satisfaction Score</Label>
+                  <Item value="1">1</Item>
+                  <Item value="2">2</Item>
+                  <Item value="3">3</Item>
+                  <Item value="4">4</Item>
+                  <Item value="5">5</Item>
+                  <Helper>Rate your experience from 1 to 5.</Helper>
+                </groupselectone--ml-discrete-slider-glass>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+      <!-- 7. With Disabled Items -->
+      <article style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.18); border-radius: 14px; padding: 24px; backdrop-filter: blur(10px); box-shadow: 0 4px 18px rgba(0,0,0,0.28);">
+        <h3 class="text-lg font-semibold mb-4" style="color: rgba(255,255,255,0.92);">Disabled Items</h3>
+        <demo id="demo-disabled-items">
+          <groupselectone--ml-discrete-slider-glass
+            value="{{playground.disabledItems.value}}"
+            name="disabled-items-demo"
+            is-editing="true">
+            <Label>Subscription Tier</Label>
+            <Item value="starter">Starter</Item>
+            <Item value="growth">Growth</Item>
+            <Item value="scale" disabled>Scale</Item>
+            <Item value="enterprise" disabled>Enterprise</Item>
+            <Helper>Scale and Enterprise require contacting sales.</Helper>
+          </groupselectone--ml-discrete-slider-glass>
+        </demo>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-sm font-medium" style="color: rgba(199,210,254,0.75);">Properties</summary>
+          <div class="mt-2 p-4 rounded-lg" style="background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.12);">
+            <aura--molecules--playground--widget-playground-state-text-102020 label="value" value="{{playground.disabledItems.value}}"></aura--molecules--playground--widget-playground-state-text-102020>
+          </div>
+        </details>
+        <details class="mt-2">
+          <summary class="cursor-pointer text-sm font-medium" style="color: rgba(199,210,254,0.75);">HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-disabled-items">
+              <template>
+                <groupselectone--ml-discrete-slider-glass
+                  value="{{playground.disabledItems.value}}"
+                  name="disabled-items-demo"
+                  is-editing="true">
+                  <Label>Subscription Tier</Label>
+                  <Item value="starter">Starter</Item>
+                  <Item value="growth">Growth</Item>
+                  <Item value="scale" disabled>Scale</Item>
+                  <Item value="enterprise" disabled>Enterprise</Item>
+                  <Helper>Scale and Enterprise require contacting sales.</Helper>
+                </groupselectone--ml-discrete-slider-glass>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+      <!-- 8. Loading State -->
+      <article style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.18); border-radius: 14px; padding: 24px; backdrop-filter: blur(10px); box-shadow: 0 4px 18px rgba(0,0,0,0.28);">
+        <h3 class="text-lg font-semibold mb-4" style="color: rgba(255,255,255,0.92);">Loading State</h3>
+        <demo id="demo-loading">
+          <groupselectone--ml-discrete-slider-glass
+            name="loading-demo"
+            is-editing="true"
+            loading="true">
+            <Label>Region</Label>
+            <Item value="us">US</Item>
+            <Item value="eu">EU</Item>
+            <Item value="ap">AP</Item>
+            <Helper>Fetching available regions...</Helper>
+          </groupselectone--ml-discrete-slider-glass>
+        </demo>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-sm font-medium" style="color: rgba(199,210,254,0.75);">HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-loading">
+              <template>
+                <groupselectone--ml-discrete-slider-glass
+                  name="loading-demo"
+                  is-editing="true"
+                  loading="true">
+                  <Label>Region</Label>
+                  <Item value="us">US</Item>
+                  <Item value="eu">EU</Item>
+                  <Item value="ap">AP</Item>
+                  <Helper>Fetching available regions...</Helper>
+                </groupselectone--ml-discrete-slider-glass>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+    </section>
+  </div>
+</div>
