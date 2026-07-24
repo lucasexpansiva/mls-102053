@@ -27,7 +27,7 @@ export const skill = `
 
 | Aspect | Value |
 |---|---|
-| Background | translucent \`rgba(255,255,255,0.04–0.16)\`; accents \`rgba(99,102,241,x)\` |
+| Background | INLINE surfaces (on the dark backdrop): translucent \`rgba(255,255,255,0.04–0.16)\`. OVERLAYS over page content (modal/dialog/dropdown/popover/tooltip): OPAQUE dark \`--ml-surface-dim\` — see Canonical Rules. accents \`rgba(99,102,241,x)\` |
 | Border | \`1px solid rgba(255,255,255,0.25)\` |
 | Radius | \`12px\` (surfaces) / \`14px\` (popovers/panels) |
 | Shadow | soft, e.g. \`0 4px 18px rgba(0,0,0,0.18)\` |
@@ -55,7 +55,7 @@ Canonical values, validated in the pilot.
 | \`--ml-primary\` | \`rgba(99,102,241,0.55)\` | primary action bg |
 | \`--ml-on-primary\` | \`#ffffff\` | text on primary |
 | \`--ml-surface\` | \`rgba(255,255,255,0.1)\` | field/secondary bg (some molecules use 0.14 — per-molecule token value) |
-| \`--ml-surface-dim\` | \`rgba(30,27,75,0.55)\` | panel/popover bg |
+| \`--ml-surface-dim\` | \`rgba(30,27,75,0.55)\` | overlay bg (panel/popover/dropdown/tooltip/modal) |
 | \`--ml-on-surface\` | \`rgba(255,255,255,0.95)\` | primary text |
 | \`--ml-on-surface-muted\` | \`rgba(255,255,255,0.55)\` | secondary text |
 | \`--ml-error\` | \`#ffb4ab\` (text) / \`rgba(244,63,94,0.55)\` (bg) | feedback |
@@ -94,9 +94,14 @@ box-shadow: var(--ml-shadow-1, 0 4px 18px rgba(0,0,0,0.18));
 **Motion stance**: smooth transitions using \`--ml-transition\` (\`250ms ease\`)
 on interactive elements.
 
-**Panels/popovers** (\`.ml-select-panel\`, rendered in the portal): darker bg
-(\`--ml-surface-dim\`), \`--ml-radius-lg\`, \`--ml-backdrop-blur-strong\`, heavier
-shadow \`0 16px 44px rgba(0,0,0,0.4)\` + inner light \`inset 0 1px 0 rgba(255,255,255,0.35)\`.
+**Overlay surfaces** — ANY floating container shown OVER page content: panels/
+dropdowns (\`.ml-select-panel\`), popovers, tooltips, and MODALS/DIALOGS. They must
+stay READABLE regardless of what is behind them → use the OPAQUE dark surface
+\`--ml-surface-dim\` (\`rgba(30,27,75,0.55)\`), NEVER the light
+\`rgba(255,255,255,0.04–0.16)\` surface (invisible / illegible over content). Plus
+\`--ml-radius-lg\`, \`--ml-backdrop-blur-strong\`, heavier shadow
+\`0 16px 44px rgba(0,0,0,0.4)\` + inner light \`inset 0 1px 0 rgba(255,255,255,0.35)\`.
+A modal/dialog also needs its scrim/backdrop dimmed (a dark veil) so the dialog reads.
 
 **States** — style the ml-* state classes the base emits:
 \`.ml-disabled\` (opacity, \`cursor: not-allowed\`, \`pointer-events: none\`),
@@ -118,6 +123,10 @@ Exclude states from hover with \`:not(.ml-disabled)\`, \`:not(.ml-select-item-se
 - Migration precedence examples: an old \`radius 10px\` (vs 12px) or an old
   \`shadow 14px\` (vs 18px) WINS over the token table for that molecule's
   scope.
+- \`overflow: hidden\` is for BUTTONS only (to clip the specular edge). Do NOT add
+  it to larger surfaces (cards, calendars, lists, panels, modals): it clips child
+  focus rings, selected halos and any overflowing decoration. The \`::before\` edge
+  works without it (\`border-radius: inherit\`).
 `;
 
 export const examples = [
