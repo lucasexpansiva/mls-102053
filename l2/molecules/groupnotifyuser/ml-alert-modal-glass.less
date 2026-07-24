@@ -1,0 +1,210 @@
+/// <mls fileReference="_102053_/l2/molecules/groupnotifyuser/ml-alert-modal-glass.less" enhancement="_102020_/l2/enhancementStyleAura" />
+// =============================================================================
+// ML-ALERT-MODAL — GLASSMORPHISM VARIANT
+// Strategy D: inherited render() emits ml-* classes; this sheet is COMPLETE.
+// Assumes a rich/dark backdrop (glass contract). Light text throughout.
+// Layout (fixed, inset, flex, p-6, gap-*, max-w-xl, etc.) comes from Tailwind.
+// =============================================================================
+
+groupnotifyuser--ml-alert-modal-glass {
+
+  // ---- theme tokens ----
+  --ml-font-family: 'Inter', system-ui, sans-serif;
+  --ml-font-weight-medium: 600;
+  --ml-radius-sm: 12px;
+  --ml-radius-lg: 14px;
+  --ml-border-width: 1px;
+  --ml-outline-variant: rgba(255, 255, 255, 0.25);
+  --ml-outline-focus: rgba(199, 210, 254, 0.9);
+  --ml-outline-error: rgba(255, 120, 120, 0.85);
+  --ml-primary: rgba(99, 102, 241, 0.55);
+  --ml-on-primary: #ffffff;
+  --ml-surface: rgba(255, 255, 255, 0.10);
+  --ml-surface-dim: rgba(30, 27, 75, 0.55);
+  --ml-on-surface: rgba(255, 255, 255, 0.95);
+  --ml-on-surface-muted: rgba(255, 255, 255, 0.55);
+  --ml-on-surface-faint: rgba(255, 255, 255, 0.35);
+  --ml-error: #ffb4ab;
+  --ml-error-bg: rgba(244, 63, 94, 0.55);
+  --ml-shadow-1: 0 4px 18px rgba(0, 0, 0, 0.18);
+  --ml-shadow-2: 0 6px 24px rgba(0, 0, 0, 0.26);
+  --ml-transition: 250ms ease;
+  --ml-focus-ring-width: 3px;
+  --ml-focus-ring-color: rgba(199, 210, 254, 0.3);
+  --ml-disabled-opacity: 0.5;
+  --ml-backdrop-blur: 10px;
+  --ml-backdrop-blur-strong: 18px;
+
+  // type-specific border tokens
+  --ml-info-border: rgba(147, 197, 253, 0.45);
+  --ml-success-border: rgba(110, 231, 183, 0.45);
+  --ml-warning-border: rgba(252, 211, 77, 0.45);
+
+  // type-specific semantic tokens
+  --ml-success: rgba(110, 231, 183, 0.95);
+  --ml-success-dim: rgba(16, 185, 129, 0.18);
+  --ml-warning: rgba(252, 211, 77, 0.95);
+  --ml-warning-dim: rgba(217, 119, 6, 0.18);
+
+  // ---- backdrop overlay (the fixed inset div with ml-surface-bg/40) ----
+  // The render emits: <div class="absolute inset-0 ml-surface-bg/40">  — Tailwind /40 opacity
+  // We style ml-surface-bg so the overlay reads as a dark glass veil.
+  .ml-surface-bg {
+    background: var(--ml-surface-dim, rgba(30, 27, 75, 0.55));
+  }
+
+  // ---- modal card (relative z-10, getContainerClasses) ----
+  // The card carries: ml-surface-bg ml-text ml-border-{type} + Tailwind layout
+  // We target the card via the structural context: it is the relative z-10 child.
+  // The render gives it rounded-xl border shadow-lg from Tailwind — we enrich
+  // with glass surface treatment scoped to the card element.
+  // We use the attribute selector on the role to target the card precisely
+  // without inventing classes.
+  [role="alert"],
+  [role="status"] {
+    position: relative;
+    background: rgba(255, 255, 255, 0.08) !important; // override ml-surface-bg on card
+    backdrop-filter: blur(var(--ml-backdrop-blur-strong, 18px));
+    -webkit-backdrop-filter: blur(var(--ml-backdrop-blur-strong, 18px));
+    border-radius: var(--ml-radius-lg, 14px);
+    border: var(--ml-border-width, 1px) solid var(--ml-outline-variant, rgba(255, 255, 255, 0.25));
+    box-shadow:
+      0 16px 44px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.35);
+    transition: box-shadow var(--ml-transition, 250ms ease);
+
+    // specular top/left edge
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border-top: 1px solid rgba(255, 255, 255, 0.5);
+      border-left: 1px solid rgba(255, 255, 255, 0.25);
+      pointer-events: none;
+    }
+  }
+
+  // ---- text classes ----
+  .ml-text {
+    color: var(--ml-on-surface, rgba(255, 255, 255, 0.95));
+    font-family: var(--ml-font-family, 'Inter', system-ui, sans-serif);
+  }
+
+  .ml-text-muted {
+    color: var(--ml-on-surface-muted, rgba(255, 255, 255, 0.55));
+    font-family: var(--ml-font-family, 'Inter', system-ui, sans-serif);
+    transition: color var(--ml-transition, 250ms ease);
+  }
+
+  .ml-text-faint {
+    color: var(--ml-on-surface-faint, rgba(255, 255, 255, 0.35));
+    font-family: var(--ml-font-family, 'Inter', system-ui, sans-serif);
+  }
+
+  .ml-label {
+    font-family: var(--ml-font-family, 'Inter', system-ui, sans-serif);
+    font-weight: var(--ml-font-weight-medium, 600);
+    color: var(--ml-on-surface, rgba(255, 255, 255, 0.95));
+  }
+
+  .ml-helper {
+    color: var(--ml-on-surface-muted, rgba(255, 255, 255, 0.55));
+    font-family: var(--ml-font-family, 'Inter', system-ui, sans-serif);
+  }
+
+  // ---- semantic text colors ----
+  .ml-error-text {
+    color: var(--ml-error, #ffb4ab);
+    font-family: var(--ml-font-family, 'Inter', system-ui, sans-serif);
+  }
+
+  .ml-primary-text {
+    color: rgba(199, 210, 254, 0.95);
+    font-family: var(--ml-font-family, 'Inter', system-ui, sans-serif);
+  }
+
+  .ml-success-text {
+    color: var(--ml-success, rgba(110, 231, 183, 0.95));
+  }
+
+  .ml-warning-text {
+    color: var(--ml-warning, rgba(252, 211, 77, 0.95));
+  }
+
+  // ---- surface backgrounds ----
+  .ml-surface-dim-bg {
+    background: var(--ml-surface-dim, rgba(30, 27, 75, 0.55));
+  }
+
+  .ml-primary-bg {
+    background: var(--ml-primary, rgba(99, 102, 241, 0.55));
+    color: var(--ml-on-primary, #ffffff);
+  }
+
+  // ---- icon wrapper dim backgrounds (small rounded-full badge — color only) ----
+  .ml-primary-dim-bg {
+    background: rgba(99, 102, 241, 0.22);
+  }
+
+  .ml-error-dim-bg {
+    background: rgba(244, 63, 94, 0.22);
+  }
+
+  .ml-success-dim-bg {
+    background: var(--ml-success-dim, rgba(16, 185, 129, 0.18));
+  }
+
+  .ml-warning-dim-bg {
+    background: var(--ml-warning-dim, rgba(217, 119, 6, 0.18));
+  }
+
+  .ml-hover-bg {
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  // ---- border classes ----
+  .ml-border {
+    border-color: var(--ml-outline-variant, rgba(255, 255, 255, 0.25));
+  }
+
+  .ml-border-focus {
+    border-color: var(--ml-outline-focus, rgba(199, 210, 254, 0.9));
+  }
+
+  .ml-border-error {
+    border-color: var(--ml-outline-error, rgba(255, 120, 120, 0.85));
+  }
+
+  .ml-border-info {
+    border-color: var(--ml-info-border, rgba(147, 197, 253, 0.45));
+  }
+
+  .ml-border-success {
+    border-color: var(--ml-success-border, rgba(110, 231, 183, 0.45));
+  }
+
+  .ml-border-warning {
+    border-color: var(--ml-warning-border, rgba(252, 211, 77, 0.45));
+  }
+
+  // ---- focus ring ----
+  .ml-focus-ring {
+    box-shadow: 0 0 0 var(--ml-focus-ring-width, 3px) var(--ml-focus-ring-color, rgba(199, 210, 254, 0.3));
+  }
+
+  // ---- dismiss button hover ----
+  .hover\:ml-text:hover {
+    color: var(--ml-on-surface, rgba(255, 255, 255, 0.95));
+    transition: color var(--ml-transition, 250ms ease);
+  }
+
+  // ---- disabled state ----
+  .ml-disabled {
+    opacity: var(--ml-disabled-opacity, 0.5);
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "createdAt": "2026-07-24T11:46:40.308Z",
+  "createdAt": "2026-07-24T16:39:37.683Z",
   "userNotes": "",
   "origin": {
     "ref": "_102040_/l2/molecules/groupenterdate/ml-compact-calendar",
@@ -34,7 +34,8 @@
       "ml-label",
       "ml-text",
       "ml-text-muted"
-    ]
+    ],
+    "absoluteMlClasses": []
   },
   "theme": {
     "project": 102053,

@@ -1,0 +1,176 @@
+/// <mls fileReference="_102053_/l2/molecules/groupselectmany/ml-multi-checkbox-list-glass.less" enhancement="_102020_/l2/enhancementStyleAura" />
+// =============================================================================
+// ML MULTI CHECKBOX LIST — GLASSMORPHISM
+// Strategy D: inherited render() from ml-multi-checkbox-list emits ml-* classes.
+// This sheet is COMPLETE — the base .less does not reach this variant tag.
+// Assumes a rich/dark backdrop (glass contract): light text, visible blur.
+// Layout (w-full, space-y-*, gap-*, flex, px-*, py-*, rounded-*, text-sm)
+// comes from Tailwind in the template — never redefined here.
+// =============================================================================
+
+groupselectmany--ml-multi-checkbox-list-glass {
+
+  // ---- theme tokens ----
+  --ml-font-family: 'Inter', system-ui, sans-serif;
+  --ml-font-weight-medium: 600;
+  --ml-radius-sm: 12px;
+  --ml-radius-md: 12px;
+  --ml-radius-lg: 14px;
+  --ml-border-width: 1px;
+  --ml-outline-variant: rgba(255, 255, 255, 0.25);
+  --ml-outline-focus: rgba(199, 210, 254, 0.9);
+  --ml-outline-error: rgba(255, 120, 120, 0.85);
+  --ml-primary: rgba(99, 102, 241, 0.55);
+  --ml-on-primary: #ffffff;
+  --ml-surface: rgba(255, 255, 255, 0.1);
+  --ml-surface-dim: rgba(30, 27, 75, 0.55);
+  --ml-on-surface: rgba(255, 255, 255, 0.95);
+  --ml-on-surface-muted: rgba(255, 255, 255, 0.55);
+  --ml-error: #ffb4ab;
+  --ml-shadow-1: 0 4px 18px rgba(0, 0, 0, 0.18);
+  --ml-shadow-2: 0 6px 24px rgba(0, 0, 0, 0.26);
+  --ml-transition: 250ms ease;
+  --ml-focus-ring-width: 3px;
+  --ml-focus-ring-color: rgba(199, 210, 254, 0.3);
+  --ml-disabled-opacity: 0.5;
+  --ml-backdrop-blur: 10px;
+
+  // ---- text / label classes ----
+
+  .ml-label {
+    font-family: var(--ml-font-family, 'Inter', system-ui, sans-serif);
+    font-weight: var(--ml-font-weight-medium, 600);
+    color: var(--ml-on-surface, rgba(255, 255, 255, 0.95));
+  }
+
+  .ml-helper {
+    color: var(--ml-on-surface-muted, rgba(255, 255, 255, 0.55));
+    font-family: var(--ml-font-family, 'Inter', system-ui, sans-serif);
+  }
+
+  .ml-error-text {
+    color: var(--ml-error, #ffb4ab);
+    font-family: var(--ml-font-family, 'Inter', system-ui, sans-serif);
+  }
+
+  .ml-text {
+    color: var(--ml-on-surface, rgba(255, 255, 255, 0.95));
+    font-family: var(--ml-font-family, 'Inter', system-ui, sans-serif);
+  }
+
+  .ml-text-muted {
+    color: var(--ml-on-surface-muted, rgba(255, 255, 255, 0.55));
+    font-family: var(--ml-font-family, 'Inter', system-ui, sans-serif);
+  }
+
+  // ---- disabled state ----
+
+  .ml-disabled {
+    opacity: var(--ml-disabled-opacity, 0.5);
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  // ---- container (glass surface) ----
+
+  .ml-checkbox-container {
+    position: relative;
+    background-color: var(--ml-surface, rgba(255, 255, 255, 0.1));
+    border-color: var(--ml-outline-variant, rgba(255, 255, 255, 0.25));
+    border-radius: var(--ml-radius-md, 12px);
+    backdrop-filter: blur(var(--ml-backdrop-blur, 10px));
+    -webkit-backdrop-filter: blur(var(--ml-backdrop-blur, 10px));
+    box-shadow: var(--ml-shadow-1, 0 4px 18px rgba(0, 0, 0, 0.18));
+    transition: border-color var(--ml-transition, 250ms ease),
+                box-shadow var(--ml-transition, 250ms ease);
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border-top: 1px solid rgba(255, 255, 255, 0.5);
+      border-left: 1px solid rgba(255, 255, 255, 0.25);
+      pointer-events: none;
+    }
+  }
+
+  .ml-checkbox-container-error {
+    border-color: var(--ml-outline-error, rgba(255, 120, 120, 0.85));
+    box-shadow: 0 0 0 var(--ml-focus-ring-width, 3px) rgba(255, 120, 120, 0.2),
+                var(--ml-shadow-1, 0 4px 18px rgba(0, 0, 0, 0.18));
+  }
+
+  // ---- item rows ----
+
+  .ml-checkbox-item {
+    background-color: rgba(255, 255, 255, 0.06);
+    border-color: var(--ml-outline-variant, rgba(255, 255, 255, 0.25));
+    color: var(--ml-on-surface, rgba(255, 255, 255, 0.95));
+    font-family: var(--ml-font-family, 'Inter', system-ui, sans-serif);
+    transition: background-color var(--ml-transition, 250ms ease),
+                border-color var(--ml-transition, 250ms ease);
+  }
+
+  .ml-checkbox-item-checked {
+    border-color: rgba(99, 102, 241, 0.7);
+    background-color: rgba(99, 102, 241, 0.22);
+    color: var(--ml-on-surface, rgba(255, 255, 255, 0.95));
+    font-family: var(--ml-font-family, 'Inter', system-ui, sans-serif);
+    transition: background-color var(--ml-transition, 250ms ease),
+                border-color var(--ml-transition, 250ms ease);
+  }
+
+  .ml-checkbox-item-hover {
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.12);
+    }
+  }
+
+  // ---- focus ring ----
+
+  .ml-checkbox-focus {
+    &:focus {
+      box-shadow: 0 0 0 var(--ml-focus-ring-width, 3px) var(--ml-focus-ring-color, rgba(199, 210, 254, 0.3));
+    }
+  }
+
+  // ---- checkbox indicator (small primitive — color only, no glass surface) ----
+
+  .ml-checkbox-indicator {
+    border-color: var(--ml-outline-variant, rgba(255, 255, 255, 0.25));
+    color: transparent;
+    transition: border-color var(--ml-transition, 250ms ease);
+  }
+
+  .ml-checkbox-indicator-checked {
+    border-color: rgba(99, 102, 241, 0.85);
+    color: rgba(199, 210, 254, 0.95);
+    transition: border-color var(--ml-transition, 250ms ease);
+  }
+
+  .ml-checkbox-indicator-blocked {
+    opacity: var(--ml-disabled-opacity, 0.5);
+  }
+
+  // ---- search input ----
+
+  .ml-checkbox-search {
+    border-color: var(--ml-outline-variant, rgba(255, 255, 255, 0.25));
+    background-color: rgba(255, 255, 255, 0.08);
+    color: var(--ml-on-surface, rgba(255, 255, 255, 0.95));
+    font-family: var(--ml-font-family, 'Inter', system-ui, sans-serif);
+    border-radius: var(--ml-radius-sm, 12px);
+    transition: border-color var(--ml-transition, 250ms ease),
+                box-shadow var(--ml-transition, 250ms ease);
+
+    &::placeholder {
+      color: var(--ml-on-surface-muted, rgba(255, 255, 255, 0.55));
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 var(--ml-focus-ring-width, 3px) var(--ml-focus-ring-color, rgba(199, 210, 254, 0.3));
+      border-color: var(--ml-outline-focus, rgba(199, 210, 254, 0.9));
+    }
+  }
+}
