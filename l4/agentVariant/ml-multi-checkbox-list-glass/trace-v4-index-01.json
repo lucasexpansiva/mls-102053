@@ -1,6 +1,7 @@
 {
-  "savedAt": "2026-07-23T17:18:19.932Z",
+  "savedAt": "2026-07-24T11:55:33.996Z",
   "planId": "v4-index",
-  "indexCreated": false,
-  "indexHtmlCreated": false
+  "attempt": 1,
+  "ok": true,
+  "compiled": true
 }
