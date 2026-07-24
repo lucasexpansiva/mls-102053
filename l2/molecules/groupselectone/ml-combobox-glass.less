@@ -1,0 +1,204 @@
+/// <mls fileReference="_102053_/l2/molecules/groupselectone/ml-combobox-glass.less" enhancement="_102020_/l2/enhancementStyleAura" />
+// =============================================================================
+// ML COMBOBOX — GLASSMORPHISM VARIANT
+// Strategy D: inherited render() emits ml-* classes; this sheet is COMPLETE.
+// Dual scope: component tag + portal container (data-widget).
+// Assumes rich/dark backdrop (glass contract).
+// =============================================================================
+
+groupselectone--ml-combobox-glass,
+div[data-widget="groupselectone--ml-combobox-glass"] {
+  display: block;
+
+  // ---- theme tokens ----
+  --ml-font-family: 'Inter', system-ui, sans-serif;
+  --ml-font-weight-medium: 600;
+  --ml-radius-sm: 12px;
+  --ml-radius-md: 12px;
+  --ml-radius-lg: 14px;
+  --ml-border-width: 1px;
+  --ml-border-style: solid;
+  --ml-outline-variant: rgba(255, 255, 255, 0.25);
+  --ml-outline-focus: rgba(199, 210, 254, 0.9);
+  --ml-outline-error: rgba(255, 120, 120, 0.85);
+  --ml-primary: rgba(99, 102, 241, 0.55);
+  --ml-on-primary: #ffffff;
+  --ml-surface: rgba(255, 255, 255, 0.1);
+  --ml-surface-dim: rgba(30, 27, 75, 0.55);
+  --ml-on-surface: rgba(255, 255, 255, 0.95);
+  --ml-on-surface-muted: rgba(255, 255, 255, 0.55);
+  --ml-error: #ffb4ab;
+  --ml-shadow-1: 0 4px 18px rgba(0, 0, 0, 0.18);
+  --ml-shadow-2: 0 6px 24px rgba(0, 0, 0, 0.26);
+  --ml-transition: 250ms ease;
+  --ml-focus-ring-width: 3px;
+  --ml-focus-ring-color: rgba(199, 210, 254, 0.3);
+  --ml-disabled-opacity: 0.5;
+  --ml-backdrop-blur: 10px;
+  --ml-backdrop-blur-strong: 18px;
+
+  // ---- text / feedback ----
+  .ml-label {
+    font-family: var(--ml-font-family, 'Inter', system-ui, sans-serif);
+    font-weight: var(--ml-font-weight-medium, 600);
+    color: rgba(255, 255, 255, 0.92);
+  }
+
+  .ml-helper {
+    color: rgba(255, 255, 255, 0.65);
+    font-family: var(--ml-font-family, 'Inter', system-ui, sans-serif);
+  }
+
+  .ml-error-text {
+    color: var(--ml-error, #ffb4ab);
+    font-family: var(--ml-font-family, 'Inter', system-ui, sans-serif);
+  }
+
+  .ml-text {
+    color: var(--ml-on-surface, rgba(255, 255, 255, 0.95));
+    font-family: var(--ml-font-family, 'Inter', system-ui, sans-serif);
+  }
+
+  .ml-text-muted {
+    color: var(--ml-on-surface-muted, rgba(255, 255, 255, 0.55));
+    font-family: var(--ml-font-family, 'Inter', system-ui, sans-serif);
+  }
+
+  // chevron svg slightly more visible than generic muted text
+  svg.ml-text-muted {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  // ---- disabled state ----
+  .ml-disabled {
+    opacity: var(--ml-disabled-opacity, 0.5);
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  // ---- trigger (closed field / input wrapper) ----
+  .ml-select-trigger {
+    position: relative;
+    background: var(--ml-surface, rgba(255, 255, 255, 0.1));
+    border: var(--ml-border-width, 1px) var(--ml-border-style, solid) var(--ml-outline-variant, rgba(255, 255, 255, 0.25));
+    border-radius: var(--ml-radius-md, 12px);
+    color: var(--ml-on-surface, rgba(255, 255, 255, 0.95));
+    font-family: var(--ml-font-family, 'Inter', system-ui, sans-serif);
+    backdrop-filter: blur(var(--ml-backdrop-blur, 10px));
+    -webkit-backdrop-filter: blur(var(--ml-backdrop-blur, 10px));
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition:
+      border-color var(--ml-transition, 250ms ease),
+      box-shadow var(--ml-transition, 250ms ease),
+      background var(--ml-transition, 250ms ease);
+
+    // specular edge
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border-top: 1px solid rgba(255, 255, 255, 0.45);
+      border-left: 1px solid rgba(255, 255, 255, 0.2);
+      pointer-events: none;
+    }
+
+    &:focus {
+      border-color: var(--ml-outline-focus, rgba(199, 210, 254, 0.9));
+      box-shadow:
+        0 0 0 var(--ml-focus-ring-width, 3px) var(--ml-focus-ring-color, rgba(199, 210, 254, 0.3)),
+        0 4px 18px rgba(0, 0, 0, 0.18);
+      outline: none;
+    }
+
+    &:hover:not(:disabled):not(.ml-select-trigger-open):not(.ml-disabled) {
+      background: rgba(255, 255, 255, 0.16);
+    }
+  }
+
+  // ---- input inside trigger ----
+  .ml-combobox-input {
+    background: transparent;
+    color: var(--ml-on-surface, rgba(255, 255, 255, 0.95));
+    font-family: var(--ml-font-family, 'Inter', system-ui, sans-serif);
+    border: none;
+    outline: none;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.45);
+    }
+  }
+
+  // ---- open state ----
+  .ml-select-trigger-open {
+    border-color: var(--ml-outline-focus, rgba(199, 210, 254, 0.9));
+    box-shadow:
+      0 0 0 var(--ml-focus-ring-width, 3px) var(--ml-focus-ring-color, rgba(199, 210, 254, 0.3)),
+      0 4px 18px rgba(0, 0, 0, 0.18);
+  }
+
+  // ---- error state ----
+  .ml-select-trigger-error {
+    border-color: var(--ml-outline-error, rgba(255, 120, 120, 0.85)) !important;
+
+    &:focus {
+      box-shadow:
+        0 0 0 var(--ml-focus-ring-width, 3px) rgba(255, 120, 120, 0.25),
+        0 4px 18px rgba(0, 0, 0, 0.18);
+    }
+  }
+
+  // ---- panel (popover — rendered in portal via data-widget) ----
+  .ml-select-panel {
+    background: var(--ml-surface-dim, rgba(30, 27, 75, 0.55));
+    border: var(--ml-border-width, 1px) var(--ml-border-style, solid) rgba(255, 255, 255, 0.2);
+    border-radius: var(--ml-radius-lg, 14px);
+    backdrop-filter: blur(var(--ml-backdrop-blur-strong, 18px));
+    -webkit-backdrop-filter: blur(var(--ml-backdrop-blur-strong, 18px));
+    box-shadow:
+      0 16px 44px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.35);
+    overflow: hidden;
+  }
+
+  // ---- list items ----
+  .ml-select-item {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.9);
+    font-family: var(--ml-font-family, 'Inter', system-ui, sans-serif);
+    cursor: pointer;
+    transition: background var(--ml-transition, 250ms ease), color var(--ml-transition, 250ms ease);
+
+    &:hover:not(.ml-disabled):not(.ml-select-item-selected) {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    &.ml-disabled {
+      opacity: 0.45;
+    }
+  }
+
+  .ml-select-item-highlighted {
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  .ml-select-item-selected {
+    background: rgba(99, 102, 241, 0.45);
+    color: #ffffff;
+  }
+
+  // ---- checkmark icon ----
+  .ml-select-checkmark {
+    color: rgba(199, 210, 254, 0.95);
+  }
+
+  // ---- empty / loading message ----
+  .ml-select-empty {
+    color: rgba(255, 255, 255, 0.6);
+    font-family: var(--ml-font-family, 'Inter', system-ui, sans-serif);
+  }
+}
+
+
