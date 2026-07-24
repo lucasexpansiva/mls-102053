@@ -1,0 +1,369 @@
+<div style="min-height:100vh; background: linear-gradient(135deg, #0f172a 0%, #312e81 45%, #7e22ce 100%); font-family: 'Inter', system-ui, sans-serif;">
+  <div class="mx-auto p-8 font-sans">
+
+    <header class="text-center mb-12">
+      <h1 class="text-3xl font-semibold mb-2" style="color: rgba(255,255,255,0.95);">Compact Step Indicator</h1>
+      <span class="inline-block px-3 py-1 rounded-full text-sm font-medium" style="background: rgba(99,102,241,0.25); color: rgba(199,210,254,0.95); border: 1px solid rgba(99,102,241,0.4);">groupnavigatesteps · glass</span>
+    </header>
+
+    <aura--molecules--playground--widget-playground-state-102020 state='{"playground":{"basic":{"value":2},"linear":{"value":1},"free":{"value":0},"disabled":{"value":1,"disabled":true},"loading":{"loading":true},"many":{"value":3}}}'>
+    </aura--molecules--playground--widget-playground-state-102020>
+
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+
+      <!-- BASIC -->
+      <article style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.18); border-radius: 12px; padding: 24px; backdrop-filter: blur(10px); box-shadow: 0 4px 18px rgba(0,0,0,0.18);">
+        <h3 class="text-lg font-semibold mb-4" style="color: rgba(255,255,255,0.92);">Basic — 4 Steps</h3>
+        <demo id="demo-basic">
+          <groupnavigatesteps--ml-compact-step-indicator-glass
+            value="{{playground.basic.value}}"
+            linear="true"
+            disabled="false"
+            loading="false">
+            <Label>Checkout</Label>
+            <Step title="Cart" completed></Step>
+            <Step title="Shipping" completed></Step>
+            <Step title="Payment"></Step>
+            <Step title="Confirmation"></Step>
+          </groupnavigatesteps--ml-compact-step-indicator-glass>
+        </demo>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-sm font-medium" style="color: rgba(199,210,254,0.75);">Properties</summary>
+          <div class="mt-2 p-4 rounded-lg" style="background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.12);">
+            <aura--molecules--playground--widget-playground-state-number-102020 label="value" value="{{playground.basic.value}}"></aura--molecules--playground--widget-playground-state-number-102020>
+          </div>
+        </details>
+        <details class="mt-2">
+          <summary class="cursor-pointer text-sm font-medium" style="color: rgba(199,210,254,0.75);">HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-basic">
+              <template>
+                <groupnavigatesteps--ml-compact-step-indicator-glass
+                  value="{{playground.basic.value}}"
+                  linear="true"
+                  disabled="false"
+                  loading="false">
+                  <Label>Checkout</Label>
+                  <Step title="Cart" completed></Step>
+                  <Step title="Shipping" completed></Step>
+                  <Step title="Payment"></Step>
+                  <Step title="Confirmation"></Step>
+                </groupnavigatesteps--ml-compact-step-indicator-glass>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+      <!-- LINEAR MODE -->
+      <article style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.18); border-radius: 12px; padding: 24px; backdrop-filter: blur(10px); box-shadow: 0 4px 18px rgba(0,0,0,0.18);">
+        <h3 class="text-lg font-semibold mb-4" style="color: rgba(255,255,255,0.92);">Linear Mode</h3>
+        <demo id="demo-linear">
+          <groupnavigatesteps--ml-compact-step-indicator-glass
+            value="{{playground.linear.value}}"
+            linear="true"
+            disabled="false"
+            loading="false">
+            <Label>Onboarding</Label>
+            <Step title="Profile" completed></Step>
+            <Step title="Preferences"></Step>
+            <Step title="Integrations"></Step>
+            <Step title="Done"></Step>
+          </groupnavigatesteps--ml-compact-step-indicator-glass>
+        </demo>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-sm font-medium" style="color: rgba(199,210,254,0.75);">Properties</summary>
+          <div class="mt-2 p-4 rounded-lg" style="background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.12);">
+            <aura--molecules--playground--widget-playground-state-number-102020 label="value" value="{{playground.linear.value}}"></aura--molecules--playground--widget-playground-state-number-102020>
+          </div>
+        </details>
+        <details class="mt-2">
+          <summary class="cursor-pointer text-sm font-medium" style="color: rgba(199,210,254,0.75);">HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-linear">
+              <template>
+                <groupnavigatesteps--ml-compact-step-indicator-glass
+                  value="{{playground.linear.value}}"
+                  linear="true"
+                  disabled="false"
+                  loading="false">
+                  <Label>Onboarding</Label>
+                  <Step title="Profile" completed></Step>
+                  <Step title="Preferences"></Step>
+                  <Step title="Integrations"></Step>
+                  <Step title="Done"></Step>
+                </groupnavigatesteps--ml-compact-step-indicator-glass>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+      <!-- FREE NAVIGATION -->
+      <article style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.18); border-radius: 12px; padding: 24px; backdrop-filter: blur(10px); box-shadow: 0 4px 18px rgba(0,0,0,0.18);">
+        <h3 class="text-lg font-semibold mb-4" style="color: rgba(255,255,255,0.92);">Free Navigation (linear=false)</h3>
+        <demo id="demo-free">
+          <groupnavigatesteps--ml-compact-step-indicator-glass
+            value="{{playground.free.value}}"
+            linear="false"
+            disabled="false"
+            loading="false">
+            <Label>Survey</Label>
+            <Step title="Intro"></Step>
+            <Step title="Questions"></Step>
+            <Step title="Review"></Step>
+            <Step title="Submit"></Step>
+          </groupnavigatesteps--ml-compact-step-indicator-glass>
+        </demo>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-sm font-medium" style="color: rgba(199,210,254,0.75);">Properties</summary>
+          <div class="mt-2 p-4 rounded-lg" style="background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.12);">
+            <aura--molecules--playground--widget-playground-state-number-102020 label="value" value="{{playground.free.value}}"></aura--molecules--playground--widget-playground-state-number-102020>
+          </div>
+        </details>
+        <details class="mt-2">
+          <summary class="cursor-pointer text-sm font-medium" style="color: rgba(199,210,254,0.75);">HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-free">
+              <template>
+                <groupnavigatesteps--ml-compact-step-indicator-glass
+                  value="{{playground.free.value}}"
+                  linear="false"
+                  disabled="false"
+                  loading="false">
+                  <Label>Survey</Label>
+                  <Step title="Intro"></Step>
+                  <Step title="Questions"></Step>
+                  <Step title="Review"></Step>
+                  <Step title="Submit"></Step>
+                </groupnavigatesteps--ml-compact-step-indicator-glass>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+      <!-- DISABLED -->
+      <article style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.18); border-radius: 12px; padding: 24px; backdrop-filter: blur(10px); box-shadow: 0 4px 18px rgba(0,0,0,0.18);">
+        <h3 class="text-lg font-semibold mb-4" style="color: rgba(255,255,255,0.92);">Disabled State</h3>
+        <demo id="demo-disabled">
+          <groupnavigatesteps--ml-compact-step-indicator-glass
+            value="{{playground.disabled.value}}"
+            linear="true"
+            disabled="true"
+            loading="false">
+            <Label>Locked Process</Label>
+            <Step title="Step 1" completed></Step>
+            <Step title="Step 2"></Step>
+            <Step title="Step 3"></Step>
+          </groupnavigatesteps--ml-compact-step-indicator-glass>
+        </demo>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-sm font-medium" style="color: rgba(199,210,254,0.75);">Properties</summary>
+          <div class="mt-2 p-4 rounded-lg" style="background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.12);">
+            <aura--molecules--playground--widget-playground-state-number-102020 label="value" value="{{playground.disabled.value}}"></aura--molecules--playground--widget-playground-state-number-102020>
+            <aura--molecules--playground--widget-playground-state-boolean-102020 label="disabled" value="{{playground.disabled.disabled}}"></aura--molecules--playground--widget-playground-state-boolean-102020>
+          </div>
+        </details>
+        <details class="mt-2">
+          <summary class="cursor-pointer text-sm font-medium" style="color: rgba(199,210,254,0.75);">HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-disabled">
+              <template>
+                <groupnavigatesteps--ml-compact-step-indicator-glass
+                  value="{{playground.disabled.value}}"
+                  linear="true"
+                  disabled="{{playground.disabled.disabled}}"
+                  loading="false">
+                  <Label>Locked Process</Label>
+                  <Step title="Step 1" completed></Step>
+                  <Step title="Step 2"></Step>
+                  <Step title="Step 3"></Step>
+                </groupnavigatesteps--ml-compact-step-indicator-glass>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+      <!-- LOADING -->
+      <article style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.18); border-radius: 12px; padding: 24px; backdrop-filter: blur(10px); box-shadow: 0 4px 18px rgba(0,0,0,0.18);">
+        <h3 class="text-lg font-semibold mb-4" style="color: rgba(255,255,255,0.92);">Loading State</h3>
+        <demo id="demo-loading">
+          <groupnavigatesteps--ml-compact-step-indicator-glass
+            value="0"
+            linear="true"
+            disabled="false"
+            loading="true">
+            <Label>Processing</Label>
+            <Step title="Step 1"></Step>
+            <Step title="Step 2"></Step>
+            <Step title="Step 3"></Step>
+          </groupnavigatesteps--ml-compact-step-indicator-glass>
+        </demo>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-sm font-medium" style="color: rgba(199,210,254,0.75);">Properties</summary>
+          <div class="mt-2 p-4 rounded-lg" style="background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.12);">
+            <aura--molecules--playground--widget-playground-state-boolean-102020 label="loading" value="{{playground.loading.loading}}"></aura--molecules--playground--widget-playground-state-boolean-102020>
+          </div>
+        </details>
+        <details class="mt-2">
+          <summary class="cursor-pointer text-sm font-medium" style="color: rgba(199,210,254,0.75);">HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-loading">
+              <template>
+                <groupnavigatesteps--ml-compact-step-indicator-glass
+                  value="0"
+                  linear="true"
+                  disabled="false"
+                  loading="{{playground.loading.loading}}">
+                  <Label>Processing</Label>
+                  <Step title="Step 1"></Step>
+                  <Step title="Step 2"></Step>
+                  <Step title="Step 3"></Step>
+                </groupnavigatesteps--ml-compact-step-indicator-glass>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+      <!-- ALL COMPLETED -->
+      <article style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.18); border-radius: 12px; padding: 24px; backdrop-filter: blur(10px); box-shadow: 0 4px 18px rgba(0,0,0,0.18);">
+        <h3 class="text-lg font-semibold mb-4" style="color: rgba(255,255,255,0.92);">All Steps Completed</h3>
+        <demo id="demo-completed">
+          <groupnavigatesteps--ml-compact-step-indicator-glass
+            value="3"
+            linear="true"
+            disabled="false"
+            loading="false">
+            <Label>Order Placed</Label>
+            <Step title="Cart" completed></Step>
+            <Step title="Shipping" completed></Step>
+            <Step title="Payment" completed></Step>
+            <Step title="Confirmation" completed></Step>
+          </groupnavigatesteps--ml-compact-step-indicator-glass>
+        </demo>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-sm font-medium" style="color: rgba(199,210,254,0.75);">Properties</summary>
+          <div class="mt-2 p-4 rounded-lg" style="background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.12);">
+            <span style="color: rgba(199,210,254,0.6); font-size: 0.8rem;">All steps have the <code>completed</code> attribute. value=3 (last step active).</span>
+          </div>
+        </details>
+        <details class="mt-2">
+          <summary class="cursor-pointer text-sm font-medium" style="color: rgba(199,210,254,0.75);">HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-completed">
+              <template>
+                <groupnavigatesteps--ml-compact-step-indicator-glass
+                  value="3"
+                  linear="true"
+                  disabled="false"
+                  loading="false">
+                  <Label>Order Placed</Label>
+                  <Step title="Cart" completed></Step>
+                  <Step title="Shipping" completed></Step>
+                  <Step title="Payment" completed></Step>
+                  <Step title="Confirmation" completed></Step>
+                </groupnavigatesteps--ml-compact-step-indicator-glass>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+      <!-- WITH DISABLED STEP -->
+      <article style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.18); border-radius: 12px; padding: 24px; backdrop-filter: blur(10px); box-shadow: 0 4px 18px rgba(0,0,0,0.18);">
+        <h3 class="text-lg font-semibold mb-4" style="color: rgba(255,255,255,0.92);">With Disabled Step</h3>
+        <demo id="demo-step-disabled">
+          <groupnavigatesteps--ml-compact-step-indicator-glass
+            value="0"
+            linear="false"
+            disabled="false"
+            loading="false">
+            <Label>Setup Wizard</Label>
+            <Step title="General"></Step>
+            <Step title="Advanced" disabled></Step>
+            <Step title="Security"></Step>
+            <Step title="Finish"></Step>
+          </groupnavigatesteps--ml-compact-step-indicator-glass>
+        </demo>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-sm font-medium" style="color: rgba(199,210,254,0.75);">Properties</summary>
+          <div class="mt-2 p-4 rounded-lg" style="background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.12);">
+            <span style="color: rgba(199,210,254,0.6); font-size: 0.8rem;">Step 2 (Advanced) has the <code>disabled</code> attribute. linear=false so other steps are freely navigable.</span>
+          </div>
+        </details>
+        <details class="mt-2">
+          <summary class="cursor-pointer text-sm font-medium" style="color: rgba(199,210,254,0.75);">HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-step-disabled">
+              <template>
+                <groupnavigatesteps--ml-compact-step-indicator-glass
+                  value="0"
+                  linear="false"
+                  disabled="false"
+                  loading="false">
+                  <Label>Setup Wizard</Label>
+                  <Step title="General"></Step>
+                  <Step title="Advanced" disabled></Step>
+                  <Step title="Security"></Step>
+                  <Step title="Finish"></Step>
+                </groupnavigatesteps--ml-compact-step-indicator-glass>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+      <!-- MANY STEPS -->
+      <article style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.18); border-radius: 12px; padding: 24px; backdrop-filter: blur(10px); box-shadow: 0 4px 18px rgba(0,0,0,0.18);">
+        <h3 class="text-lg font-semibold mb-4" style="color: rgba(255,255,255,0.92);">Many Steps (6)</h3>
+        <demo id="demo-many">
+          <groupnavigatesteps--ml-compact-step-indicator-glass
+            value="{{playground.many.value}}"
+            linear="true"
+            disabled="false"
+            loading="false">
+            <Label>Registration</Label>
+            <Step title="Account" completed></Step>
+            <Step title="Personal" completed></Step>
+            <Step title="Address" completed></Step>
+            <Step title="Documents"></Step>
+            <Step title="Review"></Step>
+            <Step title="Submit"></Step>
+          </groupnavigatesteps--ml-compact-step-indicator-glass>
+        </demo>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-sm font-medium" style="color: rgba(199,210,254,0.75);">Properties</summary>
+          <div class="mt-2 p-4 rounded-lg" style="background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.12);">
+            <aura--molecules--playground--widget-playground-state-number-102020 label="value" value="{{playground.many.value}}"></aura--molecules--playground--widget-playground-state-number-102020>
+          </div>
+        </details>
+        <details class="mt-2">
+          <summary class="cursor-pointer text-sm font-medium" style="color: rgba(199,210,254,0.75);">HTML</summary>
+          <div class="mt-2">
+            <aura--molecules--playground--widget-playground-state-preview-code-102020 target="demo-many">
+              <template>
+                <groupnavigatesteps--ml-compact-step-indicator-glass
+                  value="{{playground.many.value}}"
+                  linear="true"
+                  disabled="false"
+                  loading="false">
+                  <Label>Registration</Label>
+                  <Step title="Account" completed></Step>
+                  <Step title="Personal" completed></Step>
+                  <Step title="Address" completed></Step>
+                  <Step title="Documents"></Step>
+                  <Step title="Review"></Step>
+                  <Step title="Submit"></Step>
+                </groupnavigatesteps--ml-compact-step-indicator-glass>
+              </template>
+            </aura--molecules--playground--widget-playground-state-preview-code-102020>
+          </div>
+        </details>
+      </article>
+
+    </section>
+  </div>
+</div>

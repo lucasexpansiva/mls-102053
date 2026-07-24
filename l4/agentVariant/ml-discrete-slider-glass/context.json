@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "createdAt": "2026-07-24T13:55:44.143Z",
+  "createdAt": "2026-07-24T16:35:48.258Z",
   "userNotes": "",
   "origin": {
     "ref": "_102040_/l2/molecules/groupselectone/ml-discrete-slider",
@@ -32,6 +32,19 @@
       "ml-slider-track",
       "ml-slider-track-error",
       "ml-text",
+      "ml-text-muted"
+    ],
+    "absoluteMlClasses": [
+      "ml-disabled",
+      "ml-slider-drag-thumb",
+      "ml-slider-filled",
+      "ml-slider-indicator-idle",
+      "ml-slider-label",
+      "ml-slider-label-active",
+      "ml-slider-label-disabled",
+      "ml-slider-mark",
+      "ml-slider-mark-active",
+      "ml-slider-mark-focus",
       "ml-text-muted"
     ]
   },

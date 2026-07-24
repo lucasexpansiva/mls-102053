@@ -1,0 +1,122 @@
+/// <mls fileReference="_102053_/l2/molecules/groupnavigatesteps/ml-compact-step-indicator-glass.less" enhancement="_102020_/l2/enhancementStyleAura" />
+// =============================================================================
+// COMPACT STEP INDICATOR — GLASSMORPHISM
+// Strategy D: inherited render() emits ml-* classes; this sheet is COMPLETE.
+// Assumes a rich/dark backdrop (glass contract): light text, visible blur.
+// Layout (flex, gap, w-full, rounded-full, h-*, w-*, text-*) comes from
+// Tailwind utilities in the template — never redefined here.
+// =============================================================================
+
+groupnavigatesteps--ml-compact-step-indicator-glass {
+
+  // ---- theme tokens ----
+  --ml-font-family: 'Inter', system-ui, sans-serif;
+  --ml-font-weight-medium: 600;
+  --ml-radius-sm: 12px;
+  --ml-border-width: 1px;
+  --ml-outline-variant: rgba(255, 255, 255, 0.25);
+  --ml-outline-focus: rgba(199, 210, 254, 0.9);
+  --ml-primary: rgba(99, 102, 241, 0.55);
+  --ml-on-primary: #ffffff;
+  --ml-surface: rgba(255, 255, 255, 0.10);
+  --ml-on-surface: rgba(255, 255, 255, 0.95);
+  --ml-on-surface-muted: rgba(255, 255, 255, 0.55);
+  --ml-error: #ffb4ab;
+  --ml-shadow-1: 0 4px 18px rgba(0, 0, 0, 0.18);
+  --ml-transition: 250ms ease;
+  --ml-disabled-opacity: 0.5;
+  --ml-backdrop-blur: 10px;
+
+  // ---- text helpers ----
+  .ml-label {
+    font-family: var(--ml-font-family, 'Inter', system-ui, sans-serif);
+    font-weight: var(--ml-font-weight-medium, 600);
+    color: var(--ml-on-surface, rgba(255, 255, 255, 0.95));
+  }
+
+  .ml-text {
+    font-family: var(--ml-font-family, 'Inter', system-ui, sans-serif);
+    color: var(--ml-on-surface, rgba(255, 255, 255, 0.95));
+  }
+
+  .ml-text-muted {
+    font-family: var(--ml-font-family, 'Inter', system-ui, sans-serif);
+    color: var(--ml-on-surface-muted, rgba(255, 255, 255, 0.55));
+  }
+
+  .ml-error-text {
+    font-family: var(--ml-font-family, 'Inter', system-ui, sans-serif);
+    color: var(--ml-error, #ffb4ab);
+  }
+
+  // ---- step number button (base state) ----
+  // The render positions these as inline flex buttons with rounded-full from
+  // Tailwind; we only theme color/border/bg/transition — no position override.
+  .ml-step-number {
+    font-family: var(--ml-font-family, 'Inter', system-ui, sans-serif);
+    font-weight: var(--ml-font-weight-medium, 600);
+    background-color: var(--ml-surface, rgba(255, 255, 255, 0.10));
+    color: var(--ml-on-surface-muted, rgba(255, 255, 255, 0.55));
+    border-color: var(--ml-outline-variant, rgba(255, 255, 255, 0.25));
+    backdrop-filter: blur(var(--ml-backdrop-blur, 10px));
+    -webkit-backdrop-filter: blur(var(--ml-backdrop-blur, 10px));
+    box-shadow: var(--ml-shadow-1, 0 4px 18px rgba(0, 0, 0, 0.18));
+    transition:
+      background-color var(--ml-transition, 250ms ease),
+      border-color var(--ml-transition, 250ms ease),
+      box-shadow var(--ml-transition, 250ms ease),
+      color var(--ml-transition, 250ms ease);
+    outline: none;
+
+    &:focus-visible {
+      box-shadow:
+        0 0 0 3px rgba(199, 210, 254, 0.3),
+        var(--ml-shadow-1, 0 4px 18px rgba(0, 0, 0, 0.18));
+      border-color: var(--ml-outline-focus, rgba(199, 210, 254, 0.9));
+    }
+
+    &:not(.ml-disabled):not(.ml-step-active):not(.ml-step-completed):hover {
+      background-color: rgba(255, 255, 255, 0.18);
+      border-color: rgba(255, 255, 255, 0.45);
+      color: var(--ml-on-surface, rgba(255, 255, 255, 0.95));
+    }
+
+    &:not(.ml-disabled):active {
+      transform: scale(0.93);
+    }
+  }
+
+  // ---- active step ----
+  .ml-step-active {
+    background-color: rgba(99, 102, 241, 0.30);
+    color: rgba(199, 210, 254, 0.95);
+    border-color: rgba(99, 102, 241, 0.75);
+    box-shadow:
+      0 0 0 2px rgba(99, 102, 241, 0.35),
+      var(--ml-shadow-1, 0 4px 18px rgba(0, 0, 0, 0.18));
+  }
+
+  // ---- completed step ----
+  .ml-step-completed {
+    background-color: rgba(99, 102, 241, 0.22);
+    color: rgba(199, 210, 254, 0.90);
+    border-color: rgba(99, 102, 241, 0.55);
+
+    &:not(.ml-disabled):hover {
+      background-color: rgba(99, 102, 241, 0.35);
+      border-color: rgba(99, 102, 241, 0.80);
+    }
+  }
+
+  // ---- loading dots ----
+  .ml-step-loading-dot {
+    background-color: rgba(199, 210, 254, 0.70);
+  }
+
+  // ---- disabled ----
+  .ml-disabled {
+    opacity: var(--ml-disabled-opacity, 0.5);
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
